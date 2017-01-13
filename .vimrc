@@ -215,3 +215,8 @@ endfunction
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
+" Custom config {{{
+if has("autocmd")
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+" }}}
