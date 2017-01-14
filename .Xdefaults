@@ -1,0 +1,81 @@
+!-- Xft settings --!
+Xft.dpi:96
+Xft.autohint: 0
+Xft.antialias: 1
+Xft.lcdfilter: lcddefault
+Xft.hinting: 1
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+
+urxvt.depth: 32
+urxvt.intensityStyles: false
+URxvt.termName: xterm-256color
+
+!-- geometry --!
+urxvt.geometry:128x64
+
+!-- Fonts --!
+urxvt.font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
+urxvt.boldFont:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
+
+urxvt.letterSpace:  0
+urxvt.cursorBlink:  1
+urxvt.cursorUnderline:  0
+
+urxvt.color0:  #000000 // black
+urxvt.color1:  #C75646 // red
+urxvt.color2:  #8EB33B // green
+urxvt.color3:  #D0B03C // yellow
+urxvt.color4:  #72B3CC // blue
+urxvt.color5:  #C8A0D1 // magenta
+urxvt.color6:  #218693 // cyan
+urxvt.color7:  #B0B0B0 // white
+
+urxvt.color8:  #5D5D5D // black (now and below: bright)
+urxvt.color9:  #E09690 // red
+urxvt.color10: #CDEE69 // green
+urxvt.color11: #FFE377 // yellow
+urxvt.color12: #9CD9F0 // blue
+urxvt.color13: #FBB1F9 // magenta
+urxvt.color14: #77DFD8 // cyan
+urxvt.color15: #F7F7F7 // white
+
+urxvt.background:#1C1C1C
+urxvt.foreground:#D0D0D0
+urxvt.colorBD:#FFFFFF
+urxvt.colorUL: green
+urxvt.cursorColor:#E0E080
+urxvt.troughColor:#8080F0
+urxvt.hightlightColor:#F0F0F0
+urxvt.underlineColor: grey
+
+urxvt.loginShell:false
+urxvt.meta:ignore
+urxvt.utmpInhibit:true
+urxvt.transparent:true
+urxvt.shading:5
+
+urxvt.scrollBar:false
+urxvt.scrollBar_right:true
+urxvt.scrollBar_floating:false
+urxvt.scrollstyle:plain
+urxvt.secondaryScroll:true
+urxvt.lineSpace: 0
+
+! how many lines you want it to save per session
+urxvt.saveLines:32767
+urxvt.scrollColor:#B0B0B0
+
+! with this set to true, when an app sends a bell to the terminal, awesome hilights the appropriate tag(s) ;)
+urxvt.urgentOnBell: true
+
+! these three lines enable clicking on links to open them ;)
+!# if you want to enable tab support, append ,tabbed to the next line
+!# then use shift+down arrow to create tabs and shift+{left,right} arrows to switch between them
+urxvt.perl-ext-common: default,clipboard,matcher,-option-popup,-selection-popup,-realine
+urxvt.matcher.button: 1
+! do nott forget to change this to your favorite browser
+urxvt.urlLauncher: google-chrome
+
+urxvt.keysym.Shift-Control-V: perl:clipboard:paste
+urxvt.iso14755: False
