@@ -21,5 +21,3 @@ alias sshwork='ssh gdc@60.173.247.68 -p 50002'
 # lftp short
 alias ftpali='lftp w.xihaxueche.com --user ftp_dacheng --password xihaxueche@daxg -p 16899'
 alias ftptest='lftp 192.168.100.77 --user ftp_user2 --password gdodc@xihaxueche2016'
-
-alias tmux="TERM=screen-256color-bce tmux"
