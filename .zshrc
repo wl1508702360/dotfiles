@@ -54,8 +54,6 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets root)
 
 plugins=(git brew virtualenvwrapper zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
-source /Users/dblack/.oh-my-zsh/custom/plugins/opp.zsh/opp.zsh
-source /usr/local/Cellar/autojump/21.6.9/etc/autojump.zsh
 
 # Vars
 export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/heroku/bin:/Users/dblack/code/pytwilio.fab/venv/bin:/usr/local/sbin
