@@ -7,6 +7,9 @@
 # And add below line to $HOME/.bashrc file to get itself included.
 # code : . $HOME/.gdc.sh
 
+# install on-my-zsh
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 # gdc's alias
 if [[ -f ~/.gdc.alias.sh ]]; then
   source ~/.gdc.alias.sh
