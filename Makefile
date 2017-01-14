@@ -12,6 +12,8 @@ install:
 	cp .gdc.alias.sh ~/
 	cp .gdc.color.sh ~/
 	cp .gdc.sh ~/
+	cp .zshrc ~/
+	cp .zshenv ~/
 
 update:
 	cp -rf ~/.vim .
@@ -25,3 +27,5 @@ update:
 	cp ~/.gdc.alias.sh .
 	cp ~/.gdc.color.sh .
 	cp ~/.gdc.sh .
+	cp ~/.zshrc .
+	cp ~/.zshenv .
