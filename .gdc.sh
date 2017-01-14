@@ -29,6 +29,8 @@ fi
 #Rhythmbox encoding
 export GST_ID3_TAG_ENCODING=GBK:UTF-8:GB18030
 export GST_ID3V2_TAG_ENCOD ING=GBK:UTF-8:GB18030
+# man
+export MANWIDTH=80
 
 # load ~/.Xdefaults
 [[ -e $HOME/.Xdefaults ]] && [[ -n ${DISPLAY} ]] && xrdb -merge $HOME/.Xdefaults  > /dev/null 2>&1
