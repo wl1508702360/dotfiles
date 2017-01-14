@@ -20,6 +20,11 @@ if [[ -f ~/.gdc.export.sh ]]; then
   source ~/.gdc.export.sh
 fi
 
+# gdc's color
+if [[ -f ~/.gdc.color.sh ]]; then
+  source ~/.gdc.color.sh
+fi
+
 if [ -d $HOME/.config/composer/vendor/bin ]; then
     export PATH=$HOME/.config/composer/vendor/bin:$PATH
 fi

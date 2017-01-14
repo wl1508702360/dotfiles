@@ -11,6 +11,7 @@ install:
 	cp .bashrc ~/
 	cp .gdc.alias.sh ~/
 	cp .gdc.color.sh ~/
+	cp .gdc.export.sh ~/
 	cp .gdc.sh ~/
 	cp .zshrc ~/
 	cp .zshenv ~/
@@ -26,6 +27,7 @@ update:
 	cp ~/.bashrc .
 	cp ~/.gdc.alias.sh .
 	cp ~/.gdc.color.sh .
+	cp ~/.gdc.export.sh .
 	cp ~/.gdc.sh .
 	cp ~/.zshrc .
 	cp ~/.zshenv .
