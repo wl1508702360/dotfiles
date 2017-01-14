@@ -1,5 +1,5 @@
-# for visudo or other
 export EDITOR=vim
+export SVN_EDITOR=/usr/bin/vi
 
 export TERM=xterm-256color
 export SOCKS5_SERVER=127.0.0.1:1080

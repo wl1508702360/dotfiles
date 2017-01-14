@@ -3,37 +3,6 @@ ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
 
-alias zshc="vi ~/.zshrc"
-alias zshs="source ~/.zshrc"
-alias ohmyzsh="vi ~/.oh-my-zsh"
-alias gallois="vi ~/.oh-my-zsh/themes/gallois.zsh-theme"
-alias ll="ls -la"
-alias va=". venv/bin/activate"
-alias da="deactivate"
-alias psg="ps aux | grep"
-alias h="history"
-alias e="emacs"
-alias vi="vim"
-
-# Git
-alias gs="git status"
-alias gb="git branch"
-alias diff="git diff"
-alias log=". ~/.githelpers && pretty_git_log"
-alias gpom="git push origin master"
-alias glom="git pull origin master"
-alias gpob=". ~/.githelpers && push_branch"
-alias glob=". ~/.githelpers && pull_branch"
-alias files="find . -name "
-alias vp="vagrant provision"
-alias vr="vagrant reload"
-alias vu="vagrant up"
-alias vd="vagrant destroy"
-alias vs="vagrant ssh"
-alias staged="git diff --staged"
-alias master="git checkout master"
-alias :q="exit"
-
 # Uncomment following line if you want to disable command autocorrection
 DISABLE_CORRECTION="true"
 
@@ -54,19 +23,6 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets root)
 
 plugins=(git zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
-
-# Vars
-export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/heroku/bin:/Users/dblack/code/pytwilio.fab/venv/bin:/usr/local/sbin
-export REALM=dev
-export SVN_EDITOR=/usr/bin/vi
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUAL_ENV_DISABLE_PROMPT='1'
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-alias ls="CLICOLOR_FORCE=1 ls -G"
-alias less="less -R"
-
 
 function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '

@@ -10,6 +10,11 @@
 # install on-my-zsh
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+# gdc's color
+if [[ -f ~/.gdc.color.sh ]]; then
+  source ~/.gdc.color.sh
+fi
+
 # gdc's alias
 if [[ -f ~/.gdc.alias.sh ]]; then
   source ~/.gdc.alias.sh
@@ -18,11 +23,6 @@ fi
 # gdc's export
 if [[ -f ~/.gdc.export.sh ]]; then
   source ~/.gdc.export.sh
-fi
-
-# gdc's color
-if [[ -f ~/.gdc.color.sh ]]; then
-  source ~/.gdc.color.sh
 fi
 
 if [ -d $HOME/.config/composer/vendor/bin ]; then
