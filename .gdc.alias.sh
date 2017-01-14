@@ -1,6 +1,7 @@
 #!/bin/sh
 # alias - - make life easier
 
+alias ls='ls --color=auto'
 alias l='ls -lhF'
 alias ll='ls -lF'
 alias la='ls -AF'
