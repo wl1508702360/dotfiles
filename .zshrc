@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+ZSH_THEME="robbyrussell"
+
 alias zshc="vi ~/.zshrc"
 alias zshs="source ~/.zshrc"
 alias ohmyzsh="vi ~/.oh-my-zsh"
