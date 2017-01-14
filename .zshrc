@@ -1,8 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="dougblack"
-
 alias zshc="vi ~/.zshrc"
 alias zshs="source ~/.zshrc"
 alias ohmyzsh="vi ~/.oh-my-zsh"
@@ -52,7 +50,7 @@ zstyle ':completion:*:*:vi:*:*files' ignored-patterns '*.egg' '*.egg-info'
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets root)
 
-plugins=(git brew virtualenvwrapper zsh-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # Vars
@@ -61,8 +59,6 @@ export REALM=dev
 export SVN_EDITOR=/usr/bin/vi
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUAL_ENV_DISABLE_PROMPT='1'
-
-source /usr/local/bin/virtualenvwrapper.sh
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
