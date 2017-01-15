@@ -25,7 +25,13 @@ if [[ -f ~/.gdc.export.sh ]]; then
   source ~/.gdc.export.sh
 fi
 
-if [ -d $HOME/.config/composer/vendor/bin ]; then
+# $HOME/bin
+if [[ -d $HOME/bin ]]; then
+  export PATH=$HOME/bin:$PATH
+fi
+
+# composer bin
+if [[ -d $HOME/.config/composer/vendor/bin ]]; then
     export PATH=$HOME/.config/composer/vendor/bin:$PATH
 fi
 
