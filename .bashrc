@@ -58,9 +58,11 @@ fi
 
 color_prompt=yes
 if [ "$color_prompt" = yes ]; then
-    PS1="\u@\h \W\\$ "
+    # PS1="\u@\h \W\\$ "
+    PS1="\$ "
 else
-    PS1="\u@\h \W\\$ "
+    # PS1="\u@\h \W\\$ "
+    PS1="\$ "
 fi
 unset color_prompt force_color_prompt
 
@@ -76,18 +78,10 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    if [ -r ~/.gdc.color.sh ]; then
-        . ~/.gdc.color.sh
-    fi
 fi
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-if [ -r ~/.gdc.alias.sh ]; then
-    . ~/.gdc.alias.sh
-fi
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
