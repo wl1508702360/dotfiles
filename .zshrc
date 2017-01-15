@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="dstufft"
 
 # Uncomment following line if you want to disable command autocorrection
 DISABLE_CORRECTION="true"
