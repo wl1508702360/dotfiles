@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="prose"
+ZSH_THEME="robbyrussell"
 
 # Uncomment following line if you want to disable command autocorrection
 DISABLE_CORRECTION="true"
@@ -69,6 +69,6 @@ export SD_UPDATES_ENDPOINT=/usr/local/var/run/service-discovery/updates.sock
 export SD_CACHE_PATH=/usr/local/var/lib/service-discovery/services.json
 
 # Load my own more sh config
-if [[ -e ~/.gdc.sh ]]; then
+if [[ -f ~/.gdc.sh ]]; then
     source ~/.gdc.sh
 fi
