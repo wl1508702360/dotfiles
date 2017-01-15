@@ -1,6 +1,3 @@
-#!/bin/sh
-# alias - - make life easier
-
 alias l='ls -lhF'
 alias ll='ls -lF'
 alias la='ls -AF'
