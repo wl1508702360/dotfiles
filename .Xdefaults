@@ -12,7 +12,7 @@ urxvt.intensityStyles: false
 URxvt.termName: xterm-256color
 
 !-- geometry --!
-urxvt.geometry:108x48
+urxvt.geometry:128x60
 
 !-- Fonts --!
 urxvt.font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
