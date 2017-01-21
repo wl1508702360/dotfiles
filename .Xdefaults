@@ -22,7 +22,7 @@ urxvt.letterSpace:  0
 urxvt.cursorBlink:  1
 urxvt.cursorUnderline:  0
 
-urxvt.color0:  #000000 // black
+urxvt.color0:  #333333 // black
 urxvt.color1:  #C75646 // red
 urxvt.color2:  #8EB33B // green
 urxvt.color3:  #D0B03C // yellow
@@ -44,7 +44,7 @@ urxvt.background:#1C1C1C
 urxvt.foreground:#D0D0D0
 urxvt.colorBD:#FFFFFF
 urxvt.colorUL: green
-urxvt.cursorColor:#E0E080
+urxvt.cursorColor:#F7F7F7
 urxvt.troughColor:#8080F0
 urxvt.hightlightColor:#F0F0F0
 urxvt.underlineColor: grey
