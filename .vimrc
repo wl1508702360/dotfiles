@@ -16,6 +16,7 @@ set modelines=1
 filetype indent on
 filetype plugin on
 set autoindent
+set smartindent
 " }}}
 " UI Layout {{{
 set number              " show line numbers
