@@ -11,10 +11,6 @@ alias screenshot='scrot -cd 5 -s'
 alias googleproxy='google-chrome --proxy-server=socks5://127.0.0.1:1080'
 alias hex2bin='objcopy -I ihex -O binary'
 
-# ssh short
-alias sshali='ssh phpdev@w.xihaxueche.com -p 16822'
-alias sshwork='ssh gdc@60.173.247.68 -p 50002'
-
 alias psg="ps aux | grep"
 alias h="history"
 alias vi="vim"
