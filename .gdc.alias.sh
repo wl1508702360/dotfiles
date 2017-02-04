@@ -19,5 +19,5 @@ alias less="less -R"
 alias tm='tmux a -t base || tmux new-session -s base'
 
 if [[ -r ~/.gdc.alias.private.sh ]]; then
-  . .gdc.alias.private.sh
+  . ~/.gdc.alias.private.sh
 fi
