@@ -111,7 +111,7 @@ tmux_conf_theme_window_status_current_format='#I #W'
 # window activity status style
 tmux_conf_theme_window_status_activity_fg='default'
 tmux_conf_theme_window_status_activity_bg='default'
-tmux_conf_theme_window_status_activity_attr='underscore'
+#tmux_conf_theme_window_status_activity_attr='underscore'
 
 # window bell status style
 tmux_conf_theme_window_status_bell_fg='#ffff00'         # yellow
@@ -155,7 +155,8 @@ tmux_conf_theme_right_separator_sub='|'
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
+#tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
+tmux_conf_theme_status_left=' #S |#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
 tmux_conf_theme_status_right='#{prefix}#{pairing}#{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
 
 # status left style
@@ -175,7 +176,8 @@ tmux_conf_theme_pairing_bg='none'
 tmux_conf_theme_pairing_attr='none'
 
 # prefix indicator
-tmux_conf_theme_prefix='⌨'            # U+2328
+#tmux_conf_theme_prefix='⌨'            # U+2328
+tmux_conf_theme_prefix='-:'
 tmux_conf_theme_prefix_fg='none'
 tmux_conf_theme_prefix_bg='none'
 tmux_conf_theme_prefix_attr='none'
