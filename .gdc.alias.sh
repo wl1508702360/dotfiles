@@ -2,8 +2,8 @@ alias l='ls -lhF'
 alias ll='ls -lF'
 alias la='ls -AF'
 alias info='info --vi-keys'
-alias chownwww='sudo chown -R www-data.www-data /var/www/html/*'
-alias chmodwww='sudo chmod -R g+w /var/www/html/*'
+alias chownwww='sudo chown -Rc www-data.www-data /var/www/html/*'
+alias chmodwww='sudo chmod -Rc g+w /var/www/html/*'
 alias update="sudo aptitude update && sudo aptitude -y dist-upgrade && sudo aptitude clean && echo 'update ok'"
 alias google-proxy='google-chrome --proxy-pac-url=file:///home/gdc/.gdc.pac'
 alias takeover="tmux detach -a"
