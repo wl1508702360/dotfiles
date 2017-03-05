@@ -58,9 +58,9 @@ fi
 
 color_prompt=yes
 if [ "$color_prompt" = yes ]; then
-    PS1='\u@\h \w \$ '
+    PS1='\w: '
 else
-    PS1='\u@\h \w \$ '
+    PS1='\w: '
 fi
 unset color_prompt force_color_prompt
 
