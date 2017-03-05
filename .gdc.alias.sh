@@ -15,8 +15,6 @@ alias psg="ps aux | grep"
 alias h="history"
 alias vi="vim"
 alias less="less -R"
-# fase tmux start-up with `base` session
-alias tm='tmux a -t base || tmux new-session -s base'
 
 if [[ -r ~/.gdc.alias.private.sh ]]; then
   . ~/.gdc.alias.private.sh
