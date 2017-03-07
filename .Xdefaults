@@ -12,14 +12,14 @@ urxvt.intensityStyles: false
 URxvt.termName: xterm-256color
 
 !-- geometry --!
-urxvt.geometry:180x26
+urxvt.geometry:84x26
 
 !-- Fonts --!
 urxvt.font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
 urxvt.boldFont:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
 
 urxvt.letterSpace:  0
-urxvt.cursorBlink:  0
+urxvt.cursorBlink:  1
 urxvt.cursorUnderline:  0
 
 urxvt.color0:  #333333 // black
