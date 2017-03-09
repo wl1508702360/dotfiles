@@ -1,7 +1,7 @@
 !-- Xft settings --!
 Xft.dpi:96
 Xft.autohint: 0
-Xft.antialias: 1
+Xft.antialias: 0
 Xft.lcdfilter: lcddefault
 Xft.hinting: 1
 Xft.hintstyle: hintslight
@@ -15,9 +15,10 @@ URxvt.termName: xterm-256color
 urxvt.geometry:88x26
 
 !-- Fonts --!
-urxvt.font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
-urxvt.boldFont:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
-
+!urxvt.font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
+!urxvt.boldFont:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
+urxvt.font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wenquanyi-wenquanyi bitmap song-medium-r-normal--16-160-75-75-p-80-iso10646-1
+urxvt.boldFont:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wenquanyi-wenquanyi bitmap song-medium-r-normal--16-160-75-75-p-80-iso10646-1
 urxvt.letterSpace:  0
 urxvt.cursorBlink:  1
 urxvt.cursorUnderline:  0
