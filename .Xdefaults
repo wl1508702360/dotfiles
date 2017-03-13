@@ -51,10 +51,7 @@ urxvt.underlineColor: grey
 urxvt.loginShell:false
 urxvt.meta:ignore
 urxvt.utmpInhibit:true
-! fake transparency
-!urxvt.transparent:true
-!urxvt.shading:30
-! for eal transparency
+! for real transparency
 urxvt.depth:32
 urxvt.background:rgba:0000/0000/0200/c800
 
@@ -70,15 +67,14 @@ urxvt.saveLines:32767
 urxvt.scrollColor:#B0B0B0
 
 ! with this set to true, when an app sends a bell to the terminal, awesome hilights the appropriate tag(s) ;)
-urxvt.urgentOnBell: true
+urxvt.urgentOnBell:true
 
 ! these three lines enable clicking on links to open them ;)
 !# if you want to enable tab support, append ,tabbed to the next line
 !# then use shift+down arrow to create tabs and shift+{left,right} arrows to switch between them
-urxvt.perl-ext-common: default,clipboard,matcher,-option-popup,-selection-popup,-realine
-urxvt.matcher.button: 1
-! do nott forget to change this to your favorite browser
-urxvt.urlLauncher: google-chrome
+urxvt.perl-ext-common:default,clipboard,matcher,-option-popup,-selection-popup,-realine
+urxvt.matcher.button:1
+urxvt.urlLauncher:google-chrome
 
-urxvt.keysym.Shift-Control-V: perl:clipboard:paste
-urxvt.iso14755: False
+urxvt.keysym.Shift-Control-V:perl:clipboard:paste
+urxvt.iso14755:False
