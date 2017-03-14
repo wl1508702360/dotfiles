@@ -12,7 +12,7 @@ URxvt.termName:xterm-256color
 URxvt.inputMethod:fcitx
 
 !-- geometry --!
-urxvt.geometry:88x26+620+46
+urxvt.geometry:88x26+620+0
 
 !-- Fonts --!
 urxvt.font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=16:antialias=False
@@ -53,7 +53,7 @@ urxvt.meta:ignore
 urxvt.utmpInhibit:true
 ! for real transparency
 urxvt.depth:32
-urxvt.background:rgba:0000/0000/0200/c800
+! urxvt.background:rgba:0000/0000/0200/c800
 
 urxvt.scrollBar:false
 urxvt.scrollBar_right:true
