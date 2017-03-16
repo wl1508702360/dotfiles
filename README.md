@@ -1,5 +1,5 @@
 # README
 
-If you have been using linux or unix-alike operating system, you must be familar
+If you have been using linux or unix-alike operating system for a log time, you must be familar
 
-with a lot dot file in your home directory. Here is a collection of mine.
+with a lot of dot files in your home directory. Here is a collection of mine.
