@@ -62,7 +62,7 @@ let s:bwc.plain = ['f8f6f2', 15]
 
 " Pure and simple.
 let s:bwc.snow = ['ffffff', 15]
-let s:bwc.coal = ['000011', 16]
+let s:bwc.coal = ['000000', 16]
 
 " All of the Gravel colors are based on a brown from Clouds Midnight.
 let s:bwc.brightgravel   = ['d9cec3', 252]
@@ -72,7 +72,7 @@ let s:bwc.mediumgravel   = ['666462', 241]
 let s:bwc.deepgravel     = ['45413b', 238]
 let s:bwc.deepergravel   = ['35322d', 236]
 let s:bwc.darkgravel     = ['242321', 235]
-let s:bwc.blackgravel    = ['1c1b1a', 234]
+let s:bwc.blackgravel    = ['1c1b1a', 233]
 let s:bwc.blackestgravel = ['141413', 232]
 
 " A color sampled from a highlight in a photo of a glass of Dale's Pale Ale on
@@ -184,7 +184,6 @@ call s:HL('Folded', 'mediumgravel', 'bg', 'none')
 call s:HL('VertSplit', 'lightgravel', 'bg', 'none')
 
 call s:HL('CursorLine',   '', 'darkgravel', 'none')
-call s:HL('CursorLineNR', 'tardis', 'darkgravel', 'none')
 call s:HL('CursorColumn', '', 'darkgravel')
 call s:HL('ColorColumn',  '', 'darkgravel')
 
@@ -649,4 +648,3 @@ call s:HL('VimBracket', 'dress', '', 'none')
 
 " }}}
 
-" vim:foldmethod=marker:foldlevel=0

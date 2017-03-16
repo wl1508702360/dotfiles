@@ -1,7 +1,8 @@
 " Douglas Black
 " Colors {{{
 syntax enable           " enable syntax processing
-colorscheme badwolf
+" colorscheme badwolf
+colorscheme Monokai
 " }}}
 " Misc {{{
 set ttyfast                     " faster redraw
