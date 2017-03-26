@@ -23,3 +23,35 @@ export GST_ID3V2_TAG_ENCOD ING=GBK:UTF-8:GB18030
 
 # man
 export MANWIDTH=80
+
+# JAVA_HOME
+if [[ -d /opt/jdk1.8.0_121 ]]; then
+    export JAVA_HOME=/opt/jdk1.8.0_121
+    export PATH=$PATH:$JAVA_HOME/bin
+fi
+
+# eclipse
+if [[ -d /opt/eclipse ]]; then
+    export PATH=$PATH:/opt/eclipse
+fi
+
+# $HOME/bin
+if [[ -d $HOME/bin ]]; then
+  export PATH=$HOME/bin:$PATH
+fi
+
+# composer bin
+if [[ -d $HOME/.config/composer/vendor/bin ]]; then
+    export PATH=$HOME/.config/composer/vendor/bin:$PATH
+fi
+
+# php's bin
+if [[ -d /usr/local/php/bin ]]; then
+    export PATH=/usr/local/php/bin:$PATH
+fi
+
+# redis' bin
+if [[ -d /usr/local/redis/bin ]]; then
+    export PATH=/usr/local/redis/bin:$PATH
+fi
+

@@ -25,25 +25,5 @@ if [[ -f ~/.gdc.export.sh ]]; then
   source ~/.gdc.export.sh
 fi
 
-# $HOME/bin
-if [[ -d $HOME/bin ]]; then
-  export PATH=$HOME/bin:$PATH
-fi
-
-# composer bin
-if [[ -d $HOME/.config/composer/vendor/bin ]]; then
-    export PATH=$HOME/.config/composer/vendor/bin:$PATH
-fi
-
-# php's bin
-if [[ -d /usr/local/php/bin ]]; then
-    export PATH=/usr/local/php/bin:$PATH
-fi
-
-# redis' bin
-if [[ -d /usr/local/redis/bin ]]; then
-    export PATH=/usr/local/redis/bin:$PATH
-fi
-
 # load ~/.Xdefaults
 [[ -e $HOME/.Xdefaults ]] && [[ -n ${DISPLAY} ]] && xrdb -merge $HOME/.Xdefaults  > /dev/null 2>&1
