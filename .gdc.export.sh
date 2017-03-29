@@ -5,6 +5,7 @@ export TERM=xterm-256color
 export SOCKS5_SERVER=127.0.0.1:1080
 
 # for php dev
+export APACHE_USER=$(ps -aef | grep 'http\|apache' | grep -v 'root\|gdc' | awk '{print $1}' | uniq)
 export www=/var/www/html
 export php=/var/www/html/php
 export api=/var/www/html/php/api
