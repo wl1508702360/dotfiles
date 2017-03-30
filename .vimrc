@@ -2,7 +2,8 @@
 " Colors {{{
 syntax enable           " enable syntax processing
 " colorscheme badwolf
-colorscheme Monokai
+" colorscheme Monokai
+colorscheme molokai 
 " }}}
 " Misc {{{
 set ttyfast                     " faster redraw
