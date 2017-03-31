@@ -39,7 +39,7 @@ urxvt.color13:#FBB1F9 // magenta
 urxvt.color14:#77DFD8 // cyan
 urxvt.color15:#F7F7F7 // white
 
-urxvt.background:#1C1C1C
+urxvt.background:black
 urxvt.foreground:#D0D0D0
 urxvt.colorBD:#FFFFFF
 urxvt.colorUL: green
