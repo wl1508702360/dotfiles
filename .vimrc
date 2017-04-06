@@ -6,7 +6,8 @@ set background=dark
 " colorscheme badwolf
 " colorscheme Monokai
 " colorscheme molokai 
-colorscheme  primary
+" colorscheme  primary
+colorscheme PaperColor
 " }}}
 " Misc {{{
 set ttyfast                     " faster redraw
