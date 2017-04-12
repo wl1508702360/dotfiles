@@ -5,8 +5,8 @@ set t_Co=256
 set background=dark
 " colorscheme badwolf
 " colorscheme Monokai
-" colorscheme molokai 
-" colorscheme  primary
+" colorscheme molokai
+" colorscheme primary
 colorscheme PaperColor
 " }}}
 " Misc {{{
@@ -23,6 +23,8 @@ filetype indent on
 filetype plugin on
 set autoindent
 set smartindent
+set list
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 " }}}
 " UI Layout {{{
 set number              " show line numbers

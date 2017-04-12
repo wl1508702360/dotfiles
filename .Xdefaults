@@ -17,7 +17,7 @@ urxvt.geometry:88x26
 !-- Fonts --!
 urxvt.font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
 urxvt.boldFont:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
-urxvt.letterSpace:-1
+urxvt.letterSpace:0
 urxvt.cursorBlink:1
 urxvt.cursorUnderline:0
 
