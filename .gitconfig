@@ -12,7 +12,7 @@
 [push]
     default = simple
 [init]
-    templatedir = ~/.git_template
+    templatedir = 
 [merge]
     renamelimit = 2415
 [alias]
