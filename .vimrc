@@ -24,7 +24,8 @@ filetype plugin on
 set autoindent
 set smartindent
 set list
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+"set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+set listchars=eol:¬
 " }}}
 " UI Layout {{{
 set number              " show line numbers
