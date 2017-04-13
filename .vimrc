@@ -23,9 +23,6 @@ filetype indent on
 filetype plugin on
 set autoindent
 set smartindent
-set list
-"set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
-set listchars=eol:¬,tab:\ \ 
 " }}}
 " UI Layout {{{
 set number              " show line numbers
@@ -229,4 +226,8 @@ endfunction
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+" }}}
+" listchar {{{
+set list
+set list listchars=tab:»·,eol:↲,nbsp:␣,extends:…,space:␣,precedes:<,extends:>,trail:·
 " }}}
