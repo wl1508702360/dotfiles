@@ -25,7 +25,7 @@ set autoindent
 set smartindent
 set list
 "set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
-set listchars=eol:¬
+set listchars=eol:¬,tab:\ \ 
 " }}}
 " UI Layout {{{
 set number              " show line numbers
