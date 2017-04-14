@@ -107,6 +107,7 @@ let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
 " }}}
 " NERDTree {{{
 let NERDTreeIgnore = ['\.pyc$', 'build', 'venv', 'egg', 'egg-info/', 'dist', 'docs']
+let g:NERDTreeWinSize=50
 " }}}
 " Syntastic {{{
 let g:syntastic_python_flake8_args='--ignore=E501'
