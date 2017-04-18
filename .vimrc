@@ -29,6 +29,7 @@ set number              " show line numbers
 set showcmd             " show command in bottom bar
 set cursorline          " highlight current line
 set wildmenu
+set scrolloff=7         " scroll offset
 "set lazyredraw
 set showmatch           " higlight matching parenthesis
 " }}}
@@ -107,7 +108,7 @@ let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
 " }}}
 " NERDTree {{{
 let NERDTreeIgnore = ['\.pyc$', 'build', 'venv', 'egg', 'egg-info/', 'dist', 'docs']
-let g:NERDTreeWinSize=50
+let g:NERDTreeWinSize=40
 " }}}
 " Syntastic {{{
 let g:syntastic_python_flake8_args='--ignore=E501'
