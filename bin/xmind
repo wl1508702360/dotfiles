@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+XMIND_DIR=~/.xmind/XMind_amd64
+XMIND=$XMIND_DIR/XMind
+if [ -d $XMIND_DIR ]; then
+    if [ -x $XMIND ]; then
+        echo "正在启动XMind..."
+        cd $XMIND_DIR
+        $XMIND >/dev/null 2>&1 
+    fi
+else
+    echo "XMIND目录不存在"
+fi
