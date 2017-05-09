@@ -59,9 +59,9 @@ fi
 color_prompt=yes
 if [ "$color_prompt" = yes ]; then
     # PS1='\[\033[38;5;081m\]\u\[\033[38;5;245m\]@\[\033[38;5;206m\]\H \[\033[38;5;245m\]\w \[\033[38;5;081m\]\$ \[\e[0m\]\n'
-    PS1='[\u@\H \w] \$ \n'
+    PS1='\u@\H \w \$ \n'
 else
-    PS1='[\u@\H \w] \$ \n'
+    PS1='\u@\H \w \$ \n'
 fi
 unset color_prompt force_color_prompt
 
