@@ -28,7 +28,7 @@ set smartindent
 set number              " show line numbers
 set showcmd             " show command in bottom bar
 set cursorline          " highlight current line
-set cursorcolumn        " highlight current column
+" set cursorcolumn      " highlight current column
 set colorcolumn=80      " highlight limited column
 set wildmenu
 set scrolloff=7         " scroll offset
@@ -60,7 +60,7 @@ onoremap an :<c-u>call <SID>NextTextObject('a', 'f')<cr>
 xnoremap an :<c-u>call <SID>NextTextObject('a', 'f')<cr>
 onoremap in :<c-u>call <SID>NextTextObject('i', 'f')<cr>
 xnoremap in :<c-u>call <SID>NextTextObject('i', 'f')<cr>
- 
+
 onoremap al :<c-u>call <SID>NextTextObject('a', 'F')<cr>
 xnoremap al :<c-u>call <SID>NextTextObject('a', 'F')<cr>
 onoremap il :<c-u>call <SID>NextTextObject('i', 'F')<cr>
@@ -209,19 +209,19 @@ function! <SID>CleanFile()
     let @/=_s
     call cursor(l, c)
 endfunction
- 
+
 function! s:NextTextObject(motion, dir)
-  let c = nr2char(getchar())
- 
-  if c ==# "b"
-      let c = "("
-  elseif c ==# "B"
-      let c = "{"
-  elseif c ==# "r"
-      let c = "["
-  endif
- 
-  exe "normal! ".a:dir.c."v".a:motion.c
+    let c = nr2char(getchar())
+
+    if c ==# "b"
+        let c = "("
+    elseif c ==# "B"
+        let c = "{"
+    elseif c ==# "r"
+        let c = "["
+    endif
+
+    exe "normal! ".a:dir.c."v".a:motion.c
 endfunction
 " }}}
 
@@ -235,5 +235,12 @@ endif
 " set different indent according to different filetypes {{{
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype make setlocal noexpandtab
-
 " }}}
+
+" show invisible chars {{{
+set listchars=tab:▸\ ,eol:¬,trail:~,extends:>,precedes:<,nbsp:•
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=white guibg=#cc0000
+set list
+" }}}
+
