@@ -28,7 +28,7 @@ set smartindent
 " set number              " show line numbers
 set showcmd             " show command in bottom bar
 set cursorline          " highlight current line
-set cursorcolumn        " highlight current column
+" set cursorcolumn        " highlight current column
 set colorcolumn=80      " highlight limited column
 set wildmenu
 set scrolloff=7         " scroll offset
