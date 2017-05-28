@@ -12,14 +12,14 @@ URxvt.termName:xterm-256color
 URxvt.inputMethod:fcitx
 
 !-- geometry --!
-urxvt.geometry:88x26
+urxvt.geometry:80x25
 
 !-- Fonts --!
 urxvt.font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
 urxvt.boldFont:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
 urxvt.letterSpace:0
 urxvt.cursorBlink:1
-urxvt.cursorUnderline:1
+urxvt.cursorUnderline:0
 
 ! PaperColor Theme
 !URxvt.foreground: #4D4D4C
