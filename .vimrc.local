@@ -1,0 +1,23 @@
+" gdc
+"
+" Load .vimrc.local if exists {{{
+"   if (filereadable($HOME . "/.vimrc.local"))
+"       source $HOME/.vimrc.local
+"   endif
+" }}}
+
+" color {{{
+set background=dark
+colorscheme PaperColor
+" }}}
+
+" UI layout {{{
+set nonumber " 不显示行号
+if (version >= 600)
+    set foldcolumn=2
+endif
+" }}}
+
+" Leader shortcuts {{{
+nnoremap <leader>n :NERDTree<CR>
+" }}}

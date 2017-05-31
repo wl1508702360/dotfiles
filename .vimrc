@@ -1,8 +1,7 @@
 " Douglas Black
 " Colors {{{
 syntax enable           " enable syntax processing
-" colorscheme badwolf
-colorscheme PaperColor
+colorscheme badwolf
 set termguicolors
 " }}}
 " Misc {{{
@@ -163,5 +162,11 @@ function! <SID>CleanFile()
 endfunction
 " }}}
 "
+
+" Load .vimrc.local if exists {{{
+if (filereadable($HOME . "/.vimrc.local"))
+    source $HOME/.vimrc.local
+endif
+" }}}
 
 " vim:foldmethod=marker:foldlevel=0
