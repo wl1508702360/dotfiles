@@ -3,10 +3,6 @@
 syntax enable           " enable syntax processing
 set t_Co=256
 set background=dark
-" colorscheme badwolf
-" colorscheme Monokai
-" colorscheme molokai
-" colorscheme primary
 colorscheme PaperColor
 " }}}
 " Misc {{{
@@ -60,7 +56,7 @@ onoremap an :<c-u>call <SID>NextTextObject('a', 'f')<cr>
 xnoremap an :<c-u>call <SID>NextTextObject('a', 'f')<cr>
 onoremap in :<c-u>call <SID>NextTextObject('i', 'f')<cr>
 xnoremap in :<c-u>call <SID>NextTextObject('i', 'f')<cr>
- 
+
 onoremap al :<c-u>call <SID>NextTextObject('a', 'F')<cr>
 xnoremap al :<c-u>call <SID>NextTextObject('a', 'F')<cr>
 onoremap il :<c-u>call <SID>NextTextObject('i', 'F')<cr>
@@ -110,7 +106,7 @@ let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
 " }}}
 " NERDTree {{{
 let NERDTreeIgnore = ['\.pyc$', 'build', 'venv', 'egg', 'egg-info/', 'dist', 'docs']
-let g:NERDTreeWinSize=40
+let g:NERDTreeWinSize=30
 " }}}
 " Syntastic {{{
 let g:syntastic_python_flake8_args='--ignore=E501'
@@ -136,15 +132,15 @@ set guioptions-=L
 " }}}
 " AutoGroups {{{
 augroup configgroup
-    autocmd!
-    autocmd VimEnter * highlight clear SignColumn
-    autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md,*.rb :call <SID>StripTrailingWhitespaces()
-    autocmd BufEnter *.cls setlocal filetype=java
-    autocmd BufEnter *.zsh-theme setlocal filetype=zsh
-    autocmd BufEnter Makefile setlocal noexpandtab
-    autocmd BufEnter *.sh setlocal tabstop=2
-    autocmd BufEnter *.sh setlocal shiftwidth=2
-    autocmd BufEnter *.sh setlocal softtabstop=2
+  autocmd!
+  autocmd VimEnter * highlight clear SignColumn
+  autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md,*.rb :call <SID>StripTrailingWhitespaces()
+  autocmd BufEnter *.cls setlocal filetype=java
+  autocmd BufEnter *.zsh-theme setlocal filetype=zsh
+  autocmd BufEnter Makefile setlocal noexpandtab
+  autocmd BufEnter *.sh setlocal tabstop=2
+  autocmd BufEnter *.sh setlocal shiftwidth=2
+  autocmd BufEnter *.sh setlocal softtabstop=2
 augroup END
 " }}}
 " Backups {{{
@@ -156,71 +152,71 @@ set writebackup
 " }}}
 " Custom Functions {{{
 function! ToggleNumber()
-    if(&relativenumber == 1)
-        set norelativenumber
-        set number
-    else
-        set relativenumber
-    endif
+  if(&relativenumber == 1)
+    set norelativenumber
+    set number
+  else
+    set relativenumber
+  endif
 endfunc
 
 function! RunTestFile()
-    if(&ft=='python')
-        exec ":!" . ". venv/bin/activate; nosetests " .bufname('%') . " --stop"
-    endif
+  if(&ft=='python')
+    exec ":!" . ". venv/bin/activate; nosetests " .bufname('%') . " --stop"
+  endif
 endfunction
 
 function! RunGoFile()
-    if(&ft=='go')
-        exec ":new|0read ! go run " . bufname('%')
-    endif
+  if(&ft=='go')
+    exec ":new|0read ! go run " . bufname('%')
+  endif
 endfunction
 
 function! RunTestsInFile()
-    if(&ft=='php')
-        :execute "!" . "/Users/dblack/pear/bin/phpunit -d memory_limit=512M -c /usr/local/twilio/src/php/tests/config.xml --bootstrap /usr/local/twilio/src/php/tests/bootstrap.php " . bufname('%') . ' \| grep -v Configuration \| egrep -v "^$" '
-    elseif(&ft=='go')
-        exec ":!gp test"
-    elseif(&ft=='python')
-        exec ":read !" . ". venv/bin/activate; nosetests " . bufname('%') . " --nocapture"
-    endif
+  if(&ft=='php')
+    :execute "!" . "/Users/dblack/pear/bin/phpunit -d memory_limit=512M -c /usr/local/twilio/src/php/tests/config.xml --bootstrap /usr/local/twilio/src/php/tests/bootstrap.php " . bufname('%') . ' \| grep -v Configuration \| egrep -v "^$" '
+  elseif(&ft=='go')
+    exec ":!gp test"
+  elseif(&ft=='python')
+    exec ":read !" . ". venv/bin/activate; nosetests " . bufname('%') . " --nocapture"
+  endif
 endfunction
 
 " strips trailing whitespace at the end of files. this
 " is called on buffer write in the autogroup above.
 function! <SID>StripTrailingWhitespaces()
-    " save last search & cursor position
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    let @/=_s
-    call cursor(l, c)
+  " save last search & cursor position
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  let @/=_s
+  call cursor(l, c)
 endfunction
 
 function! <SID>CleanFile()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %!git stripspace
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %!git stripspace
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
 endfunction
- 
+
 function! s:NextTextObject(motion, dir)
   let c = nr2char(getchar())
- 
+
   if c ==# "b"
-      let c = "("
+    let c = "("
   elseif c ==# "B"
-      let c = "{"
+    let c = "{"
   elseif c ==# "r"
-      let c = "["
+    let c = "["
   endif
- 
+
   exe "normal! ".a:dir.c."v".a:motion.c
 endfunction
 " }}}
@@ -228,7 +224,7 @@ endfunction
 " vim:foldmethod=marker:foldlevel=0
 " Custom config {{{
 if has("autocmd")
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 " }}}
 
