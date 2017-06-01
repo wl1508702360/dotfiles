@@ -15,7 +15,7 @@ colorscheme PaperColor
 set nonumber " 不显示行号
 set colorcolumn=80 " 在80列出显示标记
 if (version >= 600)
-    set foldcolumn=2
+    set foldcolumn=0
 endif
 " }}}
 
