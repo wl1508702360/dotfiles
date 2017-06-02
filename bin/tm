@@ -4,7 +4,7 @@
 TARGET_SESSION=$1
 
 if [[ -z $TARGET_SESSION ]]; then
-    TARGET_SESSION='Ting'
+    TARGET_SESSION='kami'
 fi
 
 tmux a -t $TARGET_SESSION 2>/dev/null \
