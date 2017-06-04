@@ -2,7 +2,7 @@
 " Colors {{{
 syntax enable           " enable syntax processing
 colorscheme badwolf
-set termguicolors
+" set termguicolors
 " }}}
 " Misc {{{
 set backspace=indent,eol,start
