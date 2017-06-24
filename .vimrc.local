@@ -9,10 +9,11 @@
 " color {{{
 set background=dark
 colorscheme PaperColor
+highlight LineNr ctermbg=grey
 " }}}
 
 " UI layout {{{
-set nonumber " 不显示行号
+set number " 行号的显示控制
 " set colorcolumn=80 " 在80列出显示标记
 set cursorline
 if (version >= 600)
