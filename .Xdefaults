@@ -12,11 +12,11 @@ URxvt.termName:xterm-256color
 URxvt.inputMethod:fcitx
 
 !-- geometry --!
-urxvt.geometry:80x25
+urxvt.geometry:86x25
 
 !-- Fonts --!
-urxvt.font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wenquanyi-wenquanyi bitmap song-medium-r-normal--15-150-75-75-p-80-iso10646-1
-urxvt.boldFont:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wenquanyi-wenquanyi bitmap song-medium-r-normal--15-150-75-75-p-80-iso10646-1
+urxvt.font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wenquanyi-wenquanyi bitmap song-medium-r-normal--14-140-75-75-p-80-iso10646-1
+urxvt.boldFont:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wenquanyi-wenquanyi bitmap song-medium-r-normal--14-140-75-75-p-80-iso10646-1
 ! urxvt.font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
 ! urxvt.boldFont:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
 urxvt.letterSpace:0
