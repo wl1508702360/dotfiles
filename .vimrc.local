@@ -9,7 +9,7 @@
 " color {{{
 set background=dark
 colorscheme PaperColor
-highlight LineNr ctermbg=grey
+highlight LineNr ctermbg=236
 " }}}
 
 " UI layout {{{
