@@ -1,0 +1,28 @@
+name: unamed
+windows: 
+    - name: bash
+      root: ~
+      focus: true
+
+    - name: code
+      root: /var/www/html/php
+      layout: tiled
+      panes:
+          - commands:
+              - svn up
+
+    - name: database
+      root: ~
+      layout: tiled
+      panes:
+          - commands:
+              - mycli -uroot -proot
+
+    - name: httplog
+      root: /usr/local/apache2/logs
+      layout: tiled
+      panes:
+          - commands:
+              - tail -f access_log
+          - commands: 
+              - tail -f error_log
