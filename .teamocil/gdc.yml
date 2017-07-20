@@ -1,4 +1,4 @@
-name: unamed
+name: unnamed
 windows: 
     - name: bash
       root: ~
