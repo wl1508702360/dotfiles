@@ -1,12 +1,12 @@
-" Douglas Black
+" TianCheng
 " Colors {{{
 syntax enable           " enable syntax processing
-colorscheme badwolf
-" set termguicolors
+set background=dark
+colorscheme PaperColor
+highlight LineNr ctermbg=236
 " }}}
 " Misc {{{
 set backspace=indent,eol,start
-let g:vimwiki_list = [{'path': '~/.wiki/'}]
 " }}}
 " Spaces & Tabs {{{
 set tabstop=4           " 4 space tab
@@ -19,13 +19,18 @@ filetype plugin on
 set autoindent
 " }}}
 " UI Layout {{{
-" set number              " show line numbers
+set number              " show line numbers
 set showcmd             " show command in bottom bar
 set nocursorline        " highlight current line
 set wildmenu
 set lazyredraw
 set showmatch           " higlight matching parenthesis
 set fillchars+=vert:┃
+set cursorline
+" set colorcolumn=80 " 在80列出显示标记
+if (version >= 600)
+    set foldcolumn=0
+endif
 " }}}
 " Searching {{{
 set ignorecase          " ignore case when searching
@@ -48,16 +53,14 @@ nnoremap gV `[v`]
 " Leader Shortcuts {{{
 let mapleader=","
 nnoremap <leader>m :silent make\|redraw!\|cw<CR>
+nnoremap <leader>n :NERDTreeToggle .<CR>
 nnoremap <leader>h :A<CR>
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
-nnoremap <leader>et :exec ":vsp /Users/dblack/notes/vim/" . strftime('%m-%d-%y') . ".md"<CR>
-nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>l :call ToggleNumber()<CR>
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>s :mksession<CR>
 nnoremap <leader>a :Ag 
-nnoremap <leader>c :SyntasticCheck<CR>:Errors<CR>
 nnoremap <leader>1 :set number!<CR>
 nnoremap <leader>d :Make! 
 nnoremap <leader>r :TestFile<CR>
@@ -70,11 +73,6 @@ let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
-" }}}
-" Syntastic {{{
-let g:syntastic_python_flake8_args='--ignore=E501'
-let g:syntastic_ignore_files = ['.java$']
-let g:syntastic_python_python_exec = 'python3'
 " }}}
 " AutoGroups {{{
 augroup configgroup
@@ -91,10 +89,6 @@ augroup configgroup
     autocmd BufEnter *.md setlocal ft=markdown
 augroup END
 " }}}
-" Testing {{{
-let test#strategy = 'neovim'
-let test#python#runner = 'nose'
-" }}}
 " Backups {{{
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -104,24 +98,21 @@ set writebackup
 " }}}
 " Vim Plug {{{
 call plug#begin('~/.vim/plugged')
-Plug 'bling/vim-airline'
-Plug 'derekwyatt/vim-scala'
 Plug 'janko-m/vim-test'
-Plug 'keith/swift.vim'
 Plug 'kien/ctrlp.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'moll/vim-node'
-Plug 'scrooloose/syntastic'
-Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vimwiki/vimwiki'
 call plug#end()
 " }}}
 " airline {{{
 set laststatus=2
-let g:airline_theme = 'zenburn'
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#left_sep=' '
+let g:airline#extensions#tabline#left_alt_sep='|'
+let g:airline_powerline_fonts=1
+let g:airline_theme = 'papercolor'
 let g:airline_left_sep = ''
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
@@ -161,12 +152,30 @@ function! <SID>CleanFile()
     call cursor(l, c)
 endfunction
 " }}}
-"
 
-" Load .vimrc.local if exists {{{
-if (filereadable($HOME . "/.vimrc.local"))
-    source $HOME/.vimrc.local
+if has("autocmd")
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event
+    "   handler
+    " (happens when dropping a file on gvim).
+    " Also don't do it when the mark is in the first line, that is
+    "       the default
+    " position when opening a file.
+    autocmd BufReadPost *
+                \ if line("'\"") > 1 && line("'\"") <= line("$") |
+                \   exe "normal! g`\"" |
+                \ endif
 endif
+
+" php.vim {{{
+function! PhpSyntaxOverride()
+    hi! def link phpDocTags  phpDefine
+    hi! def link phpDocParam phpType
+endfunction
+augroup phpSyntaxOverride
+    autocmd!
+    autocmd FileType php call PhpSyntaxOverride()
+augroup END
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
