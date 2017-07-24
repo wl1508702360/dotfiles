@@ -54,6 +54,8 @@ nnoremap gV `[v`]
 let mapleader=","
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
+nnoremap <leader><C-p> :bprev<CR>
+nnoremap <leader><C-n> :bnext<CR>
 nnoremap <leader>m :silent make\|redraw!\|cw<CR>
 nnoremap <leader>n :NERDTreeToggle .<CR>
 nnoremap <leader>h :A<CR>
