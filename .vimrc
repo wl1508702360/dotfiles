@@ -52,6 +52,8 @@ nnoremap gV `[v`]
 " }}}
 " Leader Shortcuts {{{
 let mapleader=","
+nnoremap <leader>q :q<CR>
+nnoremap <leader>w :w<CR>
 nnoremap <leader>m :silent make\|redraw!\|cw<CR>
 nnoremap <leader>n :NERDTreeToggle .<CR>
 nnoremap <leader>h :A<CR>
