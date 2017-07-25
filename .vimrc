@@ -1,10 +1,10 @@
-" TianCheng
+" Gao's <gaodcheng@gmail.com>
 " Colors {{{
 syntax enable           " enable syntax processing
 set background=dark
 colorscheme PaperColor
 hi LineNr ctermbg=16
-hi LineNr ctermfg=244
+hi LineNr ctermfg=240
 hi CursorLineNr ctermbg=236
 hi CursorLineNr ctermfg=202
 hi NonText ctermfg=239
