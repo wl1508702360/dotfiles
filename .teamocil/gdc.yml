@@ -10,6 +10,7 @@ windows:
       panes:
           - commands:
               - svn up
+              - svn info
 
     - name: database
       root: ~
