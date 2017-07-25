@@ -3,7 +3,12 @@
 syntax enable           " enable syntax processing
 set background=dark
 colorscheme PaperColor
-highlight LineNr ctermbg=236
+hi LineNr ctermbg=16
+hi LineNr ctermfg=244
+hi CursorLineNr ctermbg=236
+hi CursorLineNr ctermfg=202
+hi NonText ctermfg=239
+hi SpecialKey ctermfg=239
 " }}}
 " Misc {{{
 set backspace=indent,eol,start
@@ -21,12 +26,13 @@ set autoindent
 " UI Layout {{{
 set number              " show line numbers
 set showcmd             " show command in bottom bar
-set nocursorline        " highlight current line
+set cursorline        " highlight current line
 set wildmenu
 set lazyredraw
 set showmatch           " higlight matching parenthesis
 set fillchars+=vert:┃
-set cursorline
+set list
+set listchars=tab:>>,eol:¬
 " set colorcolumn=80 " 在80列出显示标记
 if (version >= 600)
     set foldcolumn=0
@@ -53,6 +59,8 @@ nnoremap gV `[v`]
 " Leader Shortcuts {{{
 let mapleader=","
 nnoremap <leader>q :q<CR>
+nnoremap <leader>bl :buffers<CR>
+nnoremap <leader>b :buffer
 nnoremap <leader>w :w<CR>
 nnoremap <leader><C-p> :bprev<CR>
 nnoremap <leader><C-n> :bnext<CR>
@@ -64,9 +72,9 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>l :call ToggleNumber()<CR>
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>s :mksession<CR>
-nnoremap <leader>a :Ag 
+nnoremap <leader>a :Ag
 nnoremap <leader>1 :set number!<CR>
-nnoremap <leader>d :Make! 
+nnoremap <leader>d :Make!
 nnoremap <leader>r :TestFile<CR>
 nnoremap <leader>g :call RunGoFile()<CR>
 vnoremap <leader>y "+y
@@ -82,7 +90,7 @@ let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
 augroup configgroup
     autocmd!
     autocmd VimEnter * highlight clear SignColumn
-    autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md,*.rb :call <SID>StripTrailingWhitespaces()
+    autocmd BufWritePre *.vimrc,*.sh,*.php,*.py,*.js,*.txt,*.hs,*.java,*.md,*.rb :call <SID>StripTrailingWhitespaces()
     autocmd BufEnter *.cls setlocal filetype=java
     autocmd BufEnter *.zsh-theme setlocal filetype=zsh
     autocmd BufEnter Makefile setlocal noexpandtab
