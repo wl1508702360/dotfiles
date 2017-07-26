@@ -51,6 +51,12 @@ set foldenable          " don't fold files by default on open
 nnoremap <space> za
 set foldlevelstart=10   " start with fold level of 1
 " }}}
+" Window Shortcuts {{{
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+" }}}
 " Line Shortcuts {{{
 nnoremap j gj
 nnoremap k gk
@@ -85,6 +91,9 @@ let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
+" }}}
+" NERDTree {{{
+let g:NERDTreeWinSize = 40
 " }}}
 " AutoGroups {{{
 augroup configgroup
