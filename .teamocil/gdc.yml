@@ -27,3 +27,12 @@ windows:
               - tail -f access_log
           - commands: 
               - tail -f error_log
+
+    - name: python
+      root: ~
+      layout: tiled
+      panes:
+          - commands:
+              - ipython
+          - commands:
+              - ipython3
