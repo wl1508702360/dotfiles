@@ -63,6 +63,7 @@ nnoremap k gk
 nnoremap gV `[v`]
 " }}}
 " Leader Shortcuts {{{
+inoremap jk <ESC>
 let mapleader=","
 nnoremap <leader>q :q<CR>
 nnoremap <leader>bl :buffers<CR>
