@@ -8,6 +8,7 @@ export SOCKS5_SERVER=127.0.0.1:1080
 export APACHE_USER='www-data'
 export www=/var/www/html
 export php=/var/www/html/php
+export xadmin=/var/www/html/php/xadmin
 export jishi=/var/www/html/php/jishi_sys
 export api=/var/www/html/php/api
 export api2=/var/www/html/php/api2/dist
@@ -26,6 +27,9 @@ export GST_ID3V2_TAG_ENCOD ING=GBK:UTF-8:GB18030
 # man
 export MANWIDTH=80
 
+unset PATH
+export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
+
 # JAVA_HOME
 if [[ -d /opt/jdk1.8.0_121 ]]; then
     export JAVA_HOME=/opt/jdk1.8.0_121
@@ -35,11 +39,6 @@ fi
 # eclipse
 if [[ -d /opt/eclipse ]]; then
     export PATH=$PATH:/opt/eclipse
-fi
-
-# $HOME/bin
-if [[ -d $HOME/bin ]]; then
-  export PATH=$HOME/bin:$PATH
 fi
 
 # composer bin
