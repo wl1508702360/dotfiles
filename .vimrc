@@ -31,6 +31,7 @@ set wildmenu
 set lazyredraw
 set showmatch           " higlight matching parenthesis
 set fillchars+=vert:┃
+set scrolloff=7
 " set list
 " set listchars=tab:>>,eol:¬
 " set colorcolumn=80 " 在80列出显示标记
