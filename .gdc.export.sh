@@ -30,6 +30,11 @@ export MANWIDTH=80
 unset PATH
 export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
 
+# Home's bin
+if [[ -d $HOME/bin ]]; then
+  export PATH=$HOME/bin:$PATH
+fi
+
 # JAVA_HOME
 if [[ -d /opt/jdk1.8.0_121 ]]; then
     export JAVA_HOME=/opt/jdk1.8.0_121
