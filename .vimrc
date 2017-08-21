@@ -34,8 +34,8 @@ set lazyredraw
 set showmatch           " higlight matching parenthesis
 set fillchars+=vert:┃
 set scrolloff=7
-set list
-set listchars=tab:>>,eol:¬
+" set list
+" set listchars=eol:¬
 " set colorcolumn=80 " 在80列出显示标记
 if (version >= 600)
     set foldcolumn=0
