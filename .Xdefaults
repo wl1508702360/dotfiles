@@ -22,6 +22,8 @@ urxvt.boldFont:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wen
 urxvt.letterSpace:0
 urxvt.cursorBlink:1
 urxvt.cursorUnderline:0
+urxvt.pointerBlank:True
+urxvt.pointerBlankDelay:3
 
 ! PaperColor Theme
 !URxvt.foreground: #4D4D4C
