@@ -1,4 +1,6 @@
 " Gao's <gaodcheng@gmail.com>
+" update to Aug 21 2017
+"
 " Colors {{{
 syntax enable           " enable syntax processing
 set background=dark
@@ -32,8 +34,8 @@ set lazyredraw
 set showmatch           " higlight matching parenthesis
 set fillchars+=vert:┃
 set scrolloff=7
-" set list
-" set listchars=tab:>>,eol:¬
+set list
+set listchars=tab:>>,eol:¬
 " set colorcolumn=80 " 在80列出显示标记
 if (version >= 600)
     set foldcolumn=0
@@ -135,11 +137,19 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#left_sep=' '
 let g:airline#extensions#tabline#left_alt_sep='|'
 let g:airline_powerline_fonts=1
-let g:airline_theme = 'papercolor'
-let g:airline_left_sep = ''
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_sep = ''
+let g:airline_symbols_ascii=1
+let g:airline_theme='papercolor'
+let g:airline_left_sep=''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep=''
+let g:airline_right_alt_sep = ''
+let g:airline_detect_modified=1
+let g:airline_detect_paste=1
+let g:airline_detect_crypt=1
+let g:airline_detect_spell=1
+let g:airline_detect_iminsert=0
+let g:airline_inactive_collapse=1
+let g:airline_skip_empty_sections=1
 " }}}
 " Custom Functions {{{
 function! ToggleNumber()
