@@ -6,8 +6,8 @@ syntax enable           " enable syntax processing
 set background=dark
 colorscheme PaperColor
 hi LineNr ctermbg=16
-hi LineNr ctermfg=240
-hi CursorLineNr ctermbg=236
+hi LineNr ctermfg=243
+hi CursorLineNr ctermbg=16
 hi CursorLineNr ctermfg=202
 hi NonText ctermfg=239
 hi SpecialKey ctermfg=239
@@ -133,7 +133,7 @@ call plug#end()
 " }}}
 " airline {{{
 set laststatus=2
-let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#enabled=0
 let g:airline#extensions#tabline#left_sep=' '
 let g:airline#extensions#tabline#left_alt_sep='|'
 let g:airline_powerline_fonts=1
