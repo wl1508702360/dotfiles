@@ -12,7 +12,8 @@ URxvt.termName:xterm-256color
 URxvt.inputMethod:fcitx
 
 !-- geometry --!
-urxvt.geometry:86x25
+!urxvt.geometry:80x25
+urxvt.geometry:180x45+0+0
 
 !-- Fonts --!
 urxvt.font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wenquanyi-wenquanyi bitmap song-medium-r-normal--14-140-75-75-p-80-iso10646-1
