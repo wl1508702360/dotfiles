@@ -24,7 +24,7 @@ urxvt.letterSpace:0
 urxvt.cursorBlink:1
 urxvt.cursorUnderline:0
 urxvt.pointerBlank:True
-urxvt.pointerBlankDelay:3
+urxvt.pointerBlankDelay:6
 
 ! PaperColor Theme
 !URxvt.foreground: #4D4D4C
