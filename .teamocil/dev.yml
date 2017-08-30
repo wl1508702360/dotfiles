@@ -17,7 +17,7 @@ windows:
               - tail -f error_log
 
     - name: api2-log
-      root: /var/www/html/php/api2/dist/storage/log
+      root: /var/www/html/php/api2/dist/storage/logs
       layout: tiled
       panes:
           - commands:
