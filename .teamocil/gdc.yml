@@ -12,22 +12,6 @@ windows:
               - svn up
               - svn info
 
-    - name: database
-      root: ~
-      layout: tiled
-      panes:
-          - commands:
-              - mycli -uroot -proot
-
-    - name: httplog
-      root: /usr/local/apache2/logs
-      layout: tiled
-      panes:
-          - commands:
-              - tail -f access_log
-          - commands: 
-              - tail -f error_log
-
     - name: python
       root: ~
       layout: tiled

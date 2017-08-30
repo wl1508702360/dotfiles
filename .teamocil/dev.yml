@@ -1,0 +1,31 @@
+name: dev
+windows: 
+    - name: database
+      root: ~
+      layout: tiled
+      panes:
+          - commands:
+              - mycli -uroot -proot
+
+    - name: httplog
+      root: /usr/local/apache2/logs
+      layout: tiled
+      panes:
+          - commands:
+              - tail -f access_log
+          - commands: 
+              - tail -f error_log
+
+    - name: api2-log
+      root: /var/www/html/php/api2/dist/storage/log
+      layout: tiled
+      panes:
+          - commands:
+              - tail -f lumen.log
+
+    - name: tcpdump
+      root: ~
+      layout: tiled
+      panes:
+          - commands:
+              - date
