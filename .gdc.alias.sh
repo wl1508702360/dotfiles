@@ -1,7 +1,7 @@
 alias l="ls -lhF"
 alias ll="ls -lF"
 alias la="ls -AF"
-alias t='teamocil --here gdc'
+alias t='teamocil --here'
 alias info="info --vi-keys"
 alias chownwww="sudo chown -Rc ${APACHE_USER}.${APACHE_USER} /var/www/html"
 alias chmodwww="sudo chmod -Rc ug+wr /var/www/html"
