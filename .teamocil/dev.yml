@@ -1,4 +1,4 @@
-name: dev
+name: "dev"
 windows: 
     - name: database
       root: ~
@@ -43,3 +43,4 @@ windows:
       panes:
           - commands:
               - vendor/bin/pho -w -s -r spec
+

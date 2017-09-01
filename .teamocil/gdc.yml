@@ -1,22 +1,26 @@
-name: unnamed
+name: "gdc"
 windows: 
-    - name: bash
-      root: ~
-      focus: true
-
     - name: code
       root: /var/www/html/php
+      focus: true
       layout: tiled
       panes:
           - commands:
-              - svn up
-              - svn info
+              - ["svn up ."]
+
+    - name: node
+      root: ~
+      layout: tiled
+      panes:
+          - commands:
+              - ["node"]
 
     - name: python
       root: ~
       layout: tiled
       panes:
           - commands:
-              - ipython
+              - ["ipython"]
           - commands:
-              - ipython3
+              - ["ipython3"]
+
