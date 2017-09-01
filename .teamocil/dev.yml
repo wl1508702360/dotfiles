@@ -29,3 +29,17 @@ windows:
       panes:
           - commands:
               - date
+
+    - name: api-test-v3
+      root: /var/www/html/php/api-test/xihaxueche-student-v3
+      layout: tiled
+      panes:
+          - commands:
+              - cnpm test
+
+    - name: php-bdd
+      root: /var/www/html/php/api2/dist
+      layout: tiled
+      panes:
+          - commands:
+              - vendor/bin/pho -w -s -r spec
