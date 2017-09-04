@@ -16,12 +16,12 @@ URxvt.inputMethod:fcitx
 !urxvt.geometry:80x25
 ! Big window and fixed position (0,0)
 !urxvt.geometry:145x45+0+0
-urxvt.geometry:113x53
+urxvt.geometry:123x53
 
 !-- Fonts --!
 ! Big font
 urxvt.font:-xos4-terminus-medium-r-normal--18-180-72-72-c-100-iso10646-1,\
-    -wenquanyi-wenquanyi bitmap song-medium-r-normal--15-150-75-75-p-80-iso10646-1,\
+    -wenquanyi-wenquanyi bitmap song-medium-r-normal--15-150-75-75-p-80-iso10646-1
 urxvt.boldFont:-xos4-terminus-medium-r-normal--18-180-72-72-c-100-iso10646-1,\
     -wenquanyi-wenquanyi bitmap song-medium-r-normal--15-150-75-75-p-80-iso10646-1
 ! Normal font
