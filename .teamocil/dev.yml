@@ -1,31 +1,26 @@
-name: dev
+name: "dev"
 windows: 
-    - name: database
+    - name: main
+      root: /var/www/html/php
+      focus: true
+      layout: tiled
+      panes:
+          - commands:
+              - ["svn up ."]
+
+    - name: nodejs
       root: ~
       layout: tiled
       panes:
           - commands:
-              - mycli -uroot -proot
+              - ["node"]
 
-    - name: httplog
-      root: /usr/local/apache2/logs
-      layout: tiled
-      panes:
-          - commands:
-              - tail -f access_log
-          - commands: 
-              - tail -f error_log
-
-    - name: api2-log
-      root: /var/www/html/php/api2/dist/storage/logs
-      layout: tiled
-      panes:
-          - commands:
-              - tail -f lumen.log
-
-    - name: tcpdump
+    - name: python
       root: ~
       layout: tiled
       panes:
           - commands:
-              - date
+              - ["ipython"]
+          - commands:
+              - ["ipython3"]
+

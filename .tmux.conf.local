@@ -250,4 +250,4 @@ bind C-o send-prefix -2
 set -g status-position top
 
 # center window list for clarity
-set -g status-justify centre 
+#set -g status-justify centre
