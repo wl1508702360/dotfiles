@@ -1,74 +1,91 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-ZSH_THEME="dstufft"
+# Path to your oh-my-zsh installation.
+  export ZSH=/home/gdc/.oh-my-zsh
 
-# Uncomment following line if you want to disable command autocorrection
-DISABLE_CORRECTION="true"
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="robbyrussell"
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# Uncomment following line if you don't want greedy autocomplete
-setopt MENU_COMPLETE
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-zstyle ':completion:*:*:vi:*:*files' ignored-patterns '*.egg' '*.egg-info'
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets root)
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
 
-plugins=(git zsh-syntax-highlighting)
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git svn tmux debian node man pip)
+
 source $ZSH/oh-my-zsh.sh
 
-function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
-}
+# User configuration
 
+# export MANPATH="/usr/local/man:$MANPATH"
 
-function zle-line-init zle-keymap-select {
-    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-    RPS1="${${KEYMAP/(vicmd|opp)/$VIM_PROMPT}/(main|viins)/}"
-    zle reset-prompt
-}
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
-zle -N zle-line-init
-zle -N zle-keymap-select
-export KEYTIMEOUT=20
-bindkey -v
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
-# Use jk for ESC
-bindkey -M viins 'jk' vi-cmd-mode
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Use vim cli mode
-bindkey '^P' up-history
-bindkey '^N' down-history
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+#
 
-# backspace and ^h working even after returning from command mode
-bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
-
-# ctrl-w removed word backwards
-bindkey '^w' backward-kill-word
-
-# ctrl-r starts searching history backward
-bindkey '^r' history-incremental-search-backward
-
-setopt MENU_COMPLETE
-
-
-export CR_CACHE_DIR=/usr/local/var/lib/config-renderer
-export CR_COMMANDS_ENDPOINT=/usr/local/var/run/config-renderer/commands.sock
-
-export SD_SNAPSHOT_ENDPOINT=/usr/local/var/run/service-discovery/snapshot.sock
-export SD_UPDATES_ENDPOINT=/usr/local/var/run/service-discovery/updates.sock
-export SD_CACHE_PATH=/usr/local/var/lib/service-discovery/services.json
-
-# Load my own more sh config
-if [[ -f ~/.gdc.sh ]]; then
-    source ~/.gdc.sh
+# Customize to your needs...
+if [[ -s "${HOME}/.gdc.sh" ]]; then
+    source "${HOME}/.gdc.sh" 
 fi
