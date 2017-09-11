@@ -42,5 +42,5 @@ windows:
       layout: tiled
       panes:
           - commands:
-              - vendor/bin/pho -w -s -r spec
+              - vendor/bin/pho -w -r spec
 
