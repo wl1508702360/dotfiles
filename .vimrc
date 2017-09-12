@@ -14,7 +14,10 @@ hi SpecialKey ctermfg=239
 " }}}
 " Misc {{{
 set backspace=indent,eol,start
-"set updatetime=1000
+set timeout
+set nottimeout
+set timeoutlen=1000
+set updatetime=5000
 " }}}
 " Spaces & Tabs {{{
 set tabstop=4           " 4 space tab
@@ -73,8 +76,8 @@ nnoremap gV `[v`]
 inoremap jk <ESC>
 let mapleader=","
 nnoremap <leader>q :q<CR>
-nnoremap <leader>bl :buffers<CR>
 nnoremap <leader>b :buffer
+nnoremap <leader>bl :buffers<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader><C-p> :bprev<CR>
 nnoremap <leader><C-n> :bnext<CR>
@@ -129,13 +132,14 @@ Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 " }}}
 
 " Plugin config of each
 "    ## All is well ###
 " NERDTree {{{
-let g:NERDTreeWinSize = 28
+let g:NERDTreeWinSize=28
 " }}}
 " vim-test {{{
 nnoremap <silent> <leader>t :TestNearest<CR>
@@ -144,19 +148,29 @@ nnoremap <silent> <leader>a :TestSuite<CR>
 nnoremap <silent> <leader>l :TestLast<CR>
 nnoremap <silent> <leader>g :TestVisit<CR>
 " }}}
+" vim-indent-guides {{{
+let g:indent_guides_guide_size=1
+let g:indent_guides_color_change_percent=10
+let g:indent_guides_start_level=2
+let g:indent_guides_space_guides=1
+let g:indent_guides_tab_guides=1
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_exclude_filetypes=['help', 'nerdtree']
+let g:indent_guides_default_mapping=1
+" }}}
 " CtrlP {{{
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_by_filename = 0 " use <c-d> to toggle on/off
-let g:ctrlp_regexp = 0 " use <c-r> to toggle on/off
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_tabpane_position = 'ac' " after current tab
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_use_caching = 1
-let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
-let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
-let g:ctrlp_show_hidden = 1
+let g:ctrlp_map='<c-p>'
+let g:ctrlp_cmd='CtrlP'
+let g:ctrlp_by_filename=0 " use <c-d> to toggle on/off
+let g:ctrlp_regexp=0 " use <c-r> to toggle on/off
+let g:ctrlp_match_window='bottom,order:ttb'
+let g:ctrlp_switch_buffer=0
+let g:ctrlp_tabpane_position='ac' " after current tab
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_use_caching=1
+let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
+let g:ctrlp_custom_ignore='\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
+let g:ctrlp_show_hidden=1
 " }}}
 " airline {{{
 let g:airline#extensions#tabline#enabled=1
@@ -166,9 +180,9 @@ let g:airline_powerline_fonts=1
 let g:airline_symbols_ascii=1
 let g:airline_theme='papercolor'
 let g:airline_left_sep=''
-let g:airline_left_alt_sep = ''
+let g:airline_left_alt_sep=''
 let g:airline_right_sep=''
-let g:airline_right_alt_sep = ''
+let g:airline_right_alt_sep=''
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 let g:airline_detect_crypt=1
@@ -189,8 +203,10 @@ let g:syntastic_shell="/bin/sh"
 " }}}
 " vim-auto-save {{{
 let g:auto_save=1
-let g:auto_save_events=['InsertLeave', 'TextChanged']
-let g:auto_save_silent=0
+let g:auto_save_silent=1
+let g:auto_save_events=['CursorHoldI', 'InsertLeave', 'TextChanged']
+let g:auto_save_no_updatetime=1
+let g:auto_save_in_insert_mode=1
 let g:auto_save_presave_hook='call AbortIfNotDev()'
 function! AbortIfNotDev()
     if &filetype == 'php'
