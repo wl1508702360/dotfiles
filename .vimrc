@@ -14,10 +14,8 @@ hi SpecialKey ctermfg=239
 " }}}
 " Misc {{{
 set backspace=indent,eol,start
-set timeout
-set nottimeout
-set timeoutlen=1000
 set updatetime=5000
+set timeout timeoutlen=1000 ttimeout ttimeoutlen=20
 " }}}
 " Spaces & Tabs {{{
 set tabstop=4           " 4 space tab
@@ -228,6 +226,8 @@ function! AbortIfNotDev()
     elseif &filetype == 'c'
         let g:auto_save_abort = 0
     elseif &filetype == 'vim'
+        let g:auto_save_abort = 0
+    elseif &filetype == 'conf'
         let g:auto_save_abort = 0
     else
         let g:auto_save_abort = 1
