@@ -14,7 +14,7 @@ hi SpecialKey ctermfg=239
 " }}}
 " Misc {{{
 set backspace=indent,eol,start
-set updatetime=1000
+"set updatetime=1000
 " }}}
 " Spaces & Tabs {{{
 set tabstop=4           " 4 space tab
@@ -117,18 +117,32 @@ set writebackup
 " }}}
 " Vim Plug {{{
 call plug#begin('~/.vim/plugged')
-Plug 'janko-m/vim-test'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'stanangeloff/php.vim'
+"Plug 'shawncplus/phpcomplete.vim'
+Plug '2072/php-indenting-for-vim'
 Plug 'scrooloose/syntastic'
 Plug '907th/vim-auto-save'
+Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'janko-m/vim-test'
+"Plug 'tpope/vim-abolish'
+"Plug 'wincent/command-t'
+"Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 " }}}
+
+" Plugin config of each
+"    ## All is well ###
 " NERDTree {{{
 let g:NERDTreeWinSize = 28
+" }}}
+" vim-test {{{
+nnoremap <silent> <leader>t :TestNearest<CR>
+nnoremap <silent> <leader>T :TestFile<CR>
+nnoremap <silent> <leader>a :TestSuite<CR>
+nnoremap <silent> <leader>l :TestLast<CR>
+nnoremap <silent> <leader>g :TestVisit<CR>
 " }}}
 " CtrlP {{{
 let g:ctrlp_map = '<c-p>'
@@ -169,13 +183,13 @@ let g:syntastic_php_phpcs_args="--standard=psr2 -n --report=csv"
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
-let g:syntastic_auto_jump=1
+let g:syntastic_auto_jump=0
 let g:syntastic_auto_loc_list=1
 let g:syntastic_shell="/bin/sh"
 " }}}
 " vim-auto-save {{{
 let g:auto_save=1
-let g:auto_save_events=['CursorHold', 'CursorHoldI', 'CompleteDone', 'InsertLeave']
+let g:auto_save_events=['InsertLeave', 'TextChanged']
 let g:auto_save_silent=0
 let g:auto_save_presave_hook='call AbortIfNotDev()'
 function! AbortIfNotDev()
@@ -204,6 +218,19 @@ function! AbortIfNotDev()
     endif
 endfunction
 " }}}
+if has("autocmd")
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event
+    "   handler
+    " (happens when dropping a file on gvim).
+    " Also don't do it when the mark is in the first line, that is
+    "       the default
+    " position when opening a file.
+    autocmd BufReadPost *
+                \ if line("'\"") > 1 && line("'\"") <= line("$") |
+                \   exe "normal! g`\"" |
+                \ endif
+endif
 " Custom Functions {{{
 function! ToggleNumber()
     if(&relativenumber == 1)
@@ -236,20 +263,7 @@ function! <SID>CleanFile()
     call cursor(l, c)
 endfunction
 " }}}
-if has("autocmd")
-    " When editing a file, always jump to the last known cursor position.
-    " Don't do it when the position is invalid or when inside an event
-    "   handler
-    " (happens when dropping a file on gvim).
-    " Also don't do it when the mark is in the first line, that is
-    "       the default
-    " position when opening a file.
-    autocmd BufReadPost *
-                \ if line("'\"") > 1 && line("'\"") <= line("$") |
-                \   exe "normal! g`\"" |
-                \ endif
-endif
-" php.vim {{{
+" stanangeloff/php.vim {{{
 function! PhpSyntaxOverride()
     hi! def link phpDocTags  phpDefine
     hi! def link phpDocParam phpType
