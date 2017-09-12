@@ -1,5 +1,5 @@
-" Gao's <gaodcheng@gmail.com>
-" update to Aug 21 2017
+" Dacheng Gao's <realgaodacheng@gmail.com>
+" update to 2017-09-12
 "
 " Colors {{{
 syntax enable           " enable syntax processing
@@ -14,6 +14,7 @@ hi SpecialKey ctermfg=239
 " }}}
 " Misc {{{
 set backspace=indent,eol,start
+set updatetime=1000
 " }}}
 " Spaces & Tabs {{{
 set tabstop=4           " 4 space tab
@@ -34,6 +35,8 @@ set lazyredraw
 set showmatch           " higlight matching parenthesis
 set fillchars+=vert:┃
 set scrolloff=7
+set laststatus=2
+set showtabline=2
 " set list
 " set listchars=eol:¬
 " set colorcolumn=80 " 在80列出显示标记
@@ -53,6 +56,7 @@ set foldnestmax=10      " max 10 depth
 set foldenable          " don't fold files by default on open
 nnoremap <space> za
 set foldlevelstart=10   " start with fold level of 1
+set wildignore+=*/.git/*,*/.svn/*,*/.hg/*
 " }}}
 " Window Shortcuts {{{
 nnoremap <C-h> <C-w>h
@@ -89,16 +93,6 @@ nnoremap <leader>r :TestFile<CR>
 nnoremap <leader>g :call RunGoFile()<CR>
 vnoremap <leader>y "+y
 " }}}
-
-" CtrlP {{{
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
-" }}}
-" NERDTree {{{
-let g:NERDTreeWinSize = 40
-" }}}
 " AutoGroups {{{
 augroup configgroup
     autocmd!
@@ -124,16 +118,34 @@ set writebackup
 " Vim Plug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'janko-m/vim-test'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/syntastic'
+Plug '907th/vim-auto-save'
 call plug#end()
 " }}}
+" NERDTree {{{
+let g:NERDTreeWinSize = 28
+" }}}
+" CtrlP {{{
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_by_filename = 0 " use <c-d> to toggle on/off
+let g:ctrlp_regexp = 0 " use <c-r> to toggle on/off
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_tabpane_position = 'ac' " after current tab
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_use_caching = 1
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
+let g:ctrlp_show_hidden = 1
+" }}}
 " airline {{{
-set laststatus=2
-let g:airline#extensions#tabline#enabled=0
+let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#left_sep=' '
 let g:airline#extensions#tabline#left_alt_sep='|'
 let g:airline_powerline_fonts=1
@@ -151,6 +163,47 @@ let g:airline_detect_iminsert=0
 let g:airline_inactive_collapse=1
 let g:airline_skip_empty_sections=1
 " }}}
+" syntastic {{{
+let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
+let g:syntastic_php_phpcs_args="--standard=psr2 -n --report=csv"
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_auto_jump=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_shell="/bin/sh"
+" }}}
+" vim-auto-save {{{
+let g:auto_save=1
+let g:auto_save_events=['CursorHold', 'CursorHoldI', 'CompleteDone', 'InsertLeave']
+let g:auto_save_silent=0
+let g:auto_save_presave_hook='call AbortIfNotDev()'
+function! AbortIfNotDev()
+    if &filetype == 'php'
+        let g:auto_save_abort = 0
+    elseif &filetype == 'python'
+        let g:auto_save_abort = 0
+    elseif &filetype == 'javascript'
+        let g:auto_save_abort = 0
+    elseif &filetype == 'css'
+        let g:auto_save_abort = 0
+    elseif &filetype == 'markdown'
+        let g:auto_save_abort = 0
+    elseif &filetype == 'tex'
+        let g:auto_save_abort = 0
+    elseif &filetype == 'plaintex'
+        let g:auto_save_abort = 0
+    elseif &filetype == 'sh'
+        let g:auto_save_abort = 0
+    elseif &filetype == 'c'
+        let g:auto_save_abort = 0
+    elseif &filetype == 'vim'
+        let g:auto_save_abort = 0
+    else
+        let g:auto_save_abort = 1
+    endif
+endfunction
+" }}}
 " Custom Functions {{{
 function! ToggleNumber()
     if(&relativenumber == 1)
@@ -160,7 +213,6 @@ function! ToggleNumber()
         set relativenumber
     endif
 endfunc
-
 " strips trailing whitespace at the end of files. this
 " is called on buffer write in the autogroup above.
 function! <SID>StripTrailingWhitespaces()
@@ -172,7 +224,6 @@ function! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
-
 function! <SID>CleanFile()
     " Preparation: save last search, and cursor position.
     let _s=@/
@@ -185,7 +236,6 @@ function! <SID>CleanFile()
     call cursor(l, c)
 endfunction
 " }}}
-
 if has("autocmd")
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event
@@ -199,7 +249,6 @@ if has("autocmd")
                 \   exe "normal! g`\"" |
                 \ endif
 endif
-
 " php.vim {{{
 function! PhpSyntaxOverride()
     hi! def link phpDocTags  phpDefine
