@@ -1,6 +1,9 @@
 " Dacheng Gao's <realgaodacheng@gmail.com>
 " update to 2017-09-12
 
+" Reset vimrc
+runtime! plugin/sensible.vim
+
 " Colors {{{
 syntax enable           " enable syntax processing
 set background=dark
@@ -12,11 +15,13 @@ hi CursorLineNr ctermfg=202
 hi NonText ctermfg=239
 hi SpecialKey ctermfg=239
 " }}}
+
 " Misc {{{
 set backspace=indent,eol,start
 set updatetime=5000
 set timeout timeoutlen=1000 ttimeout ttimeoutlen=20
 " }}}
+
 " Spaces & Tabs {{{
 set tabstop=4           " 4 space tab
 set expandtab           " use spaces for tabs
@@ -28,6 +33,7 @@ filetype plugin on
 set autoindent
 set smartindent
 " }}}
+
 " UI Layout {{{
 set number              " show line numbers
 set showcmd             " show command in bottom bar
@@ -36,7 +42,7 @@ set wildmenu
 set lazyredraw
 set showmatch           " higlight matching parenthesis
 set fillchars+=vert:┃
-set scrolloff=7
+"set scrolloff=7
 set laststatus=2
 set showtabline=2
 " set list
@@ -46,11 +52,13 @@ if (version >= 600)
     set foldcolumn=0
 endif
 " }}}
+
 " Searching {{{
 set ignorecase          " ignore case when searching
 set incsearch           " search as characters are entered
 set hlsearch            " highlight all matches
 " }}}
+
 " Folding {{{
 "=== folding ===
 set foldmethod=indent   " fold based on indent level
@@ -60,17 +68,20 @@ nnoremap <space> za
 set foldlevelstart=10   " start with fold level of 1
 set wildignore+=*/.git/*,*/.svn/*,*/.hg/*
 " }}}
+
 " Window Shortcuts {{{
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 " }}}
+
 " Line Shortcuts {{{
 nnoremap j gj
 nnoremap k gk
 nnoremap gV `[v`]
 " }}}
+
 " Leader Shortcuts {{{
 inoremap jk <ESC>
 let mapleader=","
@@ -95,6 +106,7 @@ nnoremap <leader>r :TestFile<CR>
 nnoremap <leader>g :call RunGoFile()<CR>
 vnoremap <leader>y "+y
 " }}}
+
 " AutoGroups {{{
 augroup configgroup
     autocmd!
@@ -110,6 +122,7 @@ augroup configgroup
     autocmd BufEnter *.md setlocal ft=markdown
 augroup END
 " }}}
+
 " Backups {{{
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -117,32 +130,72 @@ set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 " }}}
+
+
+" Specify a directory for plugins
+" - avoid using standard Vim directory names like 'plugin'
 " Vim Plug {{{
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree' " A tree explorer plugin for vim.
-Plug 'scrooloose/nerdcommenter' " intensely orgasmic commenting
+
+" sensible.vim: Defaults everyone can agree on
+Plug 'tpope/vim-sensible'
+
+" A tree explorer plugin for vim.
+Plug 'scrooloose/nerdtree'
+
+" intensely orgasmic commenting
+Plug 'scrooloose/nerdcommenter'
+
+" Up-to-date PHP syntax file (5.3 – 7.1 support)
 Plug 'stanangeloff/php.vim'
-"Plug 'shawncplus/phpcomplete.vim'
+
+" Plug 'shawncplus/phpcomplete.vim'
 Plug '2072/php-indenting-for-vim'
+
+" Use FriendsOfPHP/PHP-CS-Fixer
 Plug 'stephpy/vim-php-cs-fixer'
+
+" Syntax checking hacks for vim
 Plug 'vim-syntastic/syntastic'
+
+" Automatically save changes to disk
 Plug '907th/vim-auto-save'
+
+" Fuzzy file, buffer, mru, tag, etc finder.
 Plug 'ctrlpvim/ctrlp.vim'
+
+" A Vim wrapper for running tests on different granularities.
 "Plug 'janko-m/vim-test'
+
+" abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
 "Plug 'tpope/vim-abolish'
+
 "Plug 'wincent/command-t'
-"Plug 'tpope/vim-fugitive' " fugitive.vim: a Git wrapper so awesome, it should be illegal
+
+" fugitive.vim: a Git wrapper so awesome, it should be illegal
+"Plug 'tpope/vim-fugitive'
+
+" lean & mean status/tabline for vim that's light as air
 Plug 'vim-airline/vim-airline'
+
+" A collection of themes for vim-airline
 Plug 'vim-airline/vim-airline-themes'
+
+" visually displaying indent levels in code
 Plug 'nathanaelkane/vim-indent-guides'
+
+" Initialize plugin system
 call plug#end()
 " }}}
 
+
 " Plugin config of each
 "    ## All is well ###
+
 " NERDTree {{{
 let g:NERDTreeWinSize=28
 " }}}
+
 " vim-test {{{
 nnoremap <silent> <leader>t :TestNearest<CR>
 nnoremap <silent> <leader>T :TestFile<CR>
@@ -150,6 +203,7 @@ nnoremap <silent> <leader>a :TestSuite<CR>
 nnoremap <silent> <leader>l :TestLast<CR>
 nnoremap <silent> <leader>g :TestVisit<CR>
 " }}}
+
 " vim-indent-guides {{{
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
@@ -160,6 +214,7 @@ let g:indent_guides_tab_guides=1
 let g:indent_guides_exclude_filetypes=['sh', 'help', 'nerdtree']
 let g:indent_guides_default_mapping=1
 " }}}
+
 " CtrlP {{{
 let g:ctrlp_map='<c-p>'
 let g:ctrlp_cmd='CtrlP'
@@ -174,6 +229,7 @@ let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
 let g:ctrlp_custom_ignore='\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
 let g:ctrlp_show_hidden=1
 " }}}
+
 " airline {{{
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#left_sep=' '
@@ -193,6 +249,7 @@ let g:airline_detect_iminsert=0
 let g:airline_inactive_collapse=1
 let g:airline_skip_empty_sections=1
 " }}}
+
 " syntastic {{{
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 let g:syntastic_php_phpcs_args="--standard=psr2 -n --report=csv"
@@ -204,6 +261,7 @@ let g:syntastic_auto_jump=0
 let g:syntastic_auto_loc_list=1
 let g:syntastic_shell="/bin/sh"
 " }}}
+
 " vim-php-cs-fixer {{{
 " If php-cs-fixer is in $PATH, you don't need to define line below
 "let g:php_cs_fixer_path='~/php-cs-fixer.phar' " define the path to the php-cs-fixer.phar
@@ -229,6 +287,7 @@ let g:php_cs_fixer_verbose=0                    " Return the output of command i
 "autocmd QuitPre *.php :call PhpCsFixerFixFile()<CR> " run this after automatically before we exit
 nnoremap <silent> <leader>p :call PhpCsFixerFixFile()<CR><CR>
 " }}}
+
 " vim-auto-save {{{
 let g:auto_save=1
 let g:auto_save_silent=1
@@ -237,19 +296,19 @@ let g:auto_save_no_updatetime=1
 let g:auto_save_in_insert_mode=1
 let g:auto_save_presave_hook=''
 " }}}
-if has("autocmd")
-    " When editing a file, always jump to the last known cursor position.
-    " Don't do it when the position is invalid or when inside an event
-    "   handler
-    " (happens when dropping a file on gvim).
-    " Also don't do it when the mark is in the first line, that is
-    "       the default
-    " position when opening a file.
-    autocmd BufReadPost *
-                \ if line("'\"") > 1 && line("'\"") <= line("$") |
-                \   exe "normal! g`\"" |
-                \ endif
-endif
+
+" stanangeloff/php.vim {{{
+function! PhpSyntaxOverride()
+    hi! def link phpDocTags  phpDefine
+    hi! def link phpDocParam phpType
+endfunction
+augroup phpSyntaxOverride
+    autocmd!
+    autocmd FileType php call PhpSyntaxOverride()
+augroup END
+" }}}
+
+
 " Custom Functions {{{
 function! ToggleNumber()
     if(&relativenumber == 1)
@@ -259,6 +318,7 @@ function! ToggleNumber()
         set relativenumber
     endif
 endfunc
+
 " strips trailing whitespace at the end of files. this
 " is called on buffer write in the autogroup above.
 function! <SID>StripTrailingWhitespaces()
@@ -270,6 +330,7 @@ function! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
+
 function! <SID>CleanFile()
     " Preparation: save last search, and cursor position.
     let _s=@/
@@ -282,15 +343,18 @@ function! <SID>CleanFile()
     call cursor(l, c)
 endfunction
 " }}}
-" stanangeloff/php.vim {{{
-function! PhpSyntaxOverride()
-    hi! def link phpDocTags  phpDefine
-    hi! def link phpDocParam phpType
-endfunction
-augroup phpSyntaxOverride
-    autocmd!
-    autocmd FileType php call PhpSyntaxOverride()
-augroup END
-" }}}
+
+
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+" Also don't do it when the mark is in the first line, that is the default
+" position when opening a file.
+if has("autocmd")
+    autocmd BufReadPost *
+                \ if line("'\"") > 1 && line("'\"") <= line("$") |
+                \   exe "normal! g`\"" |
+                \ endif
+endif
 
 " vim:foldmethod=marker:foldlevel=0
