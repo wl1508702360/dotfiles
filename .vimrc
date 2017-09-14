@@ -26,6 +26,7 @@ set modelines=1
 filetype indent on
 filetype plugin on
 set autoindent
+set smartindent
 " }}}
 " UI Layout {{{
 set number              " show line numbers
@@ -118,16 +119,19 @@ set writebackup
 " }}}
 " Vim Plug {{{
 call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree' " A tree explorer plugin for vim.
+Plug 'scrooloose/nerdcommenter' " intensely orgasmic commenting
 Plug 'stanangeloff/php.vim'
 "Plug 'shawncplus/phpcomplete.vim'
 Plug '2072/php-indenting-for-vim'
-Plug 'scrooloose/syntastic'
+Plug 'stephpy/vim-php-cs-fixer'
+Plug 'vim-syntastic/syntastic'
 Plug '907th/vim-auto-save'
 Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'janko-m/vim-test'
 "Plug 'tpope/vim-abolish'
 "Plug 'wincent/command-t'
-"Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive' " fugitive.vim: a Git wrapper so awesome, it should be illegal
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -147,13 +151,13 @@ nnoremap <silent> <leader>l :TestLast<CR>
 nnoremap <silent> <leader>g :TestVisit<CR>
 " }}}
 " vim-indent-guides {{{
+let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
 let g:indent_guides_color_change_percent=10
 let g:indent_guides_start_level=2
 let g:indent_guides_space_guides=1
 let g:indent_guides_tab_guides=1
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_exclude_filetypes=['help', 'nerdtree']
+let g:indent_guides_exclude_filetypes=['sh', 'help', 'nerdtree']
 let g:indent_guides_default_mapping=1
 " }}}
 " CtrlP {{{
@@ -200,44 +204,38 @@ let g:syntastic_auto_jump=0
 let g:syntastic_auto_loc_list=1
 let g:syntastic_shell="/bin/sh"
 " }}}
+" vim-php-cs-fixer {{{
+" If php-cs-fixer is in $PATH, you don't need to define line below
+"let g:php_cs_fixer_path='~/php-cs-fixer.phar' " define the path to the php-cs-fixer.phar
+"
+" If you use php-cs-fixer version 1.x
+"let g:php_cs_fixer_level='symfony'                   " options: --level (default:symfony)
+"let g:php_cs_fixer_config='default'                  " options: --config
+" If you want to define specific fixers:
+"let g:php_cs_fixer_fixers_list='linefeed,short_tag' " options: --fixers
+"let g:php_cs_fixer_config_file='.php_cs'            " options: --config-file
+"  " End of php-cs-fixer version 1 config params
+"
+" If you use php-cs-fixer version 2.x
+let g:php_cs_fixer_rules='@PSR2'          " options: --rules (default:@PSR2)
+"let g:php_cs_fixer_cache='.php_cs.cache' " options: --cache-file
+"let g:php_cs_fixer_config_file='.php_cs' " options: --config
+" End of php-cs-fixer version 2 config params
+"
+let g:php_cs_fixer_php_path='php'               " Path to PHP
+let g:php_cs_fixer_enable_default_mapping=0     " Enable the mapping by default (<leader>pcd)
+let g:php_cs_fixer_dry_run=0                    " Call command with dry-run option
+let g:php_cs_fixer_verbose=0                    " Return the output of command if 1, else an inline information.
+"autocmd QuitPre *.php :call PhpCsFixerFixFile()<CR> " run this after automatically before we exit
+nnoremap <silent> <leader>p :call PhpCsFixerFixFile()<CR><CR>
+" }}}
 " vim-auto-save {{{
 let g:auto_save=1
 let g:auto_save_silent=1
 let g:auto_save_events=['CursorHoldI', 'InsertLeave', 'TextChanged']
 let g:auto_save_no_updatetime=1
 let g:auto_save_in_insert_mode=1
-let g:auto_save_presave_hook='call AbortIfNotDev()'
-function! AbortIfNotDev()
-    if &filetype == 'php'
-        let g:auto_save_abort = 0
-    elseif &filetype == 'python'
-        let g:auto_save_abort = 0
-    elseif &filetype == 'dockerfile'
-        let g:auto_save_abort = 0
-    elseif &filetype == 'javascript'
-        let g:auto_save_abort = 0
-    elseif &filetype == 'css'
-        let g:auto_save_abort = 0
-    elseif &filetype == 'markdown'
-        let g:auto_save_abort = 0
-    elseif &filetype == 'tex'
-        let g:auto_save_abort = 0
-    elseif &filetype == 'plaintex'
-        let g:auto_save_abort = 0
-    elseif &filetype == 'sh'
-        let g:auto_save_abort = 0
-    elseif &filetype == 'c'
-        let g:auto_save_abort = 0
-    elseif &filetype == 'vim'
-        let g:auto_save_abort = 0
-    elseif &filetype == 'conf'
-        let g:auto_save_abort = 0
-    elseif &filetype == 'text'
-        let g:auto_save_abort = 0
-    else
-        let g:auto_save_abort = 1
-    endif
-endfunction
+let g:auto_save_presave_hook=''
 " }}}
 if has("autocmd")
     " When editing a file, always jump to the last known cursor position.
