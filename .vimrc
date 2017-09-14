@@ -193,6 +193,7 @@ let g:airline_skip_empty_sections=1
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 let g:syntastic_php_phpcs_args="--standard=psr2 -n --report=csv"
 let g:syntastic_always_populate_loc_list=1
+let g:syntastic_loc_list_height=5 " default 10
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_auto_jump=0
@@ -211,6 +212,8 @@ function! AbortIfNotDev()
         let g:auto_save_abort = 0
     elseif &filetype == 'python'
         let g:auto_save_abort = 0
+    elseif &filetype == 'dockerfile'
+        let g:auto_save_abort = 0
     elseif &filetype == 'javascript'
         let g:auto_save_abort = 0
     elseif &filetype == 'css'
@@ -228,6 +231,8 @@ function! AbortIfNotDev()
     elseif &filetype == 'vim'
         let g:auto_save_abort = 0
     elseif &filetype == 'conf'
+        let g:auto_save_abort = 0
+    elseif &filetype == 'text'
         let g:auto_save_abort = 0
     else
         let g:auto_save_abort = 1
