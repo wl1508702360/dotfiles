@@ -1,6 +1,6 @@
 " Dacheng Gao's <realgaodacheng@gmail.com>
 " update to 2017-09-12
-"
+
 " Colors {{{
 syntax enable           " enable syntax processing
 set background=dark
@@ -180,7 +180,7 @@ let g:airline#extensions#tabline#left_sep=' '
 let g:airline#extensions#tabline#left_alt_sep='|'
 let g:airline_powerline_fonts=1
 let g:airline_symbols_ascii=1
-let g:airline_theme='papercolor'
+let g:airline_theme='onedark'
 let g:airline_left_sep=''
 let g:airline_left_alt_sep=''
 let g:airline_right_sep=''
