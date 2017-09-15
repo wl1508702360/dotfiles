@@ -1,8 +1,10 @@
 " Dacheng Gao's <realgaodacheng@gmail.com>
 " update to 2017-09-12
 
-" Reset vimrc
+" Reset vimrc {{{
+set nocompatible
 runtime! plugin/sensible.vim
+" }}}
 
 " Colors {{{
 syntax enable           " enable syntax processing
@@ -31,6 +33,7 @@ set modelines=1
 filetype indent on
 filetype plugin on
 set autoindent
+set smarttab
 set smartindent
 " }}}
 
@@ -38,11 +41,12 @@ set smartindent
 set number              " show line numbers
 set showcmd             " show command in bottom bar
 set cursorline        " highlight current line
+set ruler
 set wildmenu
 set lazyredraw
 set showmatch           " higlight matching parenthesis
 set fillchars+=vert:┃
-"set scrolloff=7
+set scrolloff=1
 set laststatus=2
 set showtabline=2
 set list
