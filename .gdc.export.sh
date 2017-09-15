@@ -1,8 +1,12 @@
+#!/bin/sh
 export EDITOR=vim
-export SVN_EDITOR=/usr/bin/vi
+export SVN_EDITOR=/usr/bin/vim
 
 export TERM=xterm-256color
 export SOCKS5_SERVER=127.0.0.1:1080
+
+# zsh delay
+export KEYTIMEOUT=1
 
 # for php dev
 export APACHE_USER='www-data'
@@ -27,12 +31,13 @@ export GST_ID3V2_TAG_ENCOD ING=GBK:UTF-8:GB18030
 # man
 export MANWIDTH=80
 
+## PATH settings below
 unset PATH
 export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
 
-# Home's bin
-if [[ -d $HOME/bin ]]; then
-  export PATH=$HOME/bin:$PATH
+# user's private bin and make it hidden to avoid annoying
+if [[ -d $HOME/.bin ]]; then
+  export PATH=$HOME/.bin:$PATH
 fi
 
 # JAVA_HOME
@@ -46,18 +51,19 @@ if [[ -d /opt/eclipse ]]; then
     export PATH=$PATH:/opt/eclipse
 fi
 
-# composer bin
+# composer
 if [[ -d $HOME/.config/composer/vendor/bin ]]; then
     export PATH=$HOME/.config/composer/vendor/bin:$PATH
 fi
 
-# php's bin
+# php binary
 if [[ -d /usr/local/php/bin ]]; then
     export PATH=/usr/local/php/bin:$PATH
 fi
 
-# redis' bin
+# redis binary
 if [[ -d /usr/local/redis/bin ]]; then
     export PATH=/usr/local/redis/bin:$PATH
 fi
 
+## end PATH settings

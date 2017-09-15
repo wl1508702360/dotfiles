@@ -1,28 +1,33 @@
 #!/bin/sh
-# FileName: .gdc.sh
-# Author  : Gao D. Cheng
-# Email   : dickens.gao@gmail.com
+## FileName: .gdc.sh
+# Author  : Dacheng Gao
+# Email   : realgaodacheng@gmail.com
 #
-# This file should be put into $HOME directory. 
+# This file should be put into $HOME directory.
 # And add below line to $HOME/.bashrc file to get itself included.
 # code : . $HOME/.gdc.sh
 
 # install on-my-zsh
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-# gdc's export
+# export
 if [[ -f ~/.gdc.export.sh ]]; then
   source ~/.gdc.export.sh
 fi
 
-# gdc's alias
+# alias
 if [[ -f ~/.gdc.alias.sh ]]; then
   source ~/.gdc.alias.sh
 fi
 
-# gdc's color
+# color
 if [[ -f ~/.gdc.color.sh ]]; then
   source ~/.gdc.color.sh
+fi
+
+# cursor
+if [[ -f ~/.gdc.cursor.sh ]]; then
+  source ~/.gdc.cursor.sh
 fi
 
 # load ~/.Xdefaults

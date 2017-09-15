@@ -45,9 +45,10 @@ set fillchars+=vert:┃
 "set scrolloff=7
 set laststatus=2
 set showtabline=2
-" set list
-" set listchars=eol:¬
-" set colorcolumn=80 " 在80列出显示标记
+set list
+set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+set colorcolumn=80 " 在80列出显示标记
 if (version >= 600)
     set foldcolumn=0
 endif
@@ -290,7 +291,7 @@ nnoremap <silent> <leader>p :call PhpCsFixerFixFile()<CR><CR>
 
 " vim-auto-save {{{
 let g:auto_save=1
-let g:auto_save_silent=1
+let g:auto_save_silent=0
 let g:auto_save_events=['CursorHoldI', 'InsertLeave', 'TextChanged']
 let g:auto_save_no_updatetime=1
 let g:auto_save_in_insert_mode=1
