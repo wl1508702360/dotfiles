@@ -53,6 +53,7 @@ endif
 if (version >= 600)
     set foldcolumn=0
 endif
+set modeline
 " }}}
 
 " Searching {{{
@@ -293,7 +294,7 @@ nnoremap <silent> <leader>p :call PhpCsFixerFixFile()<CR><CR>
 " vim-auto-save {{{
 let g:auto_save=1
 let g:auto_save_silent=0
-let g:auto_save_events=['CursorHoldI', 'InsertLeave', 'TextChanged']
+let g:auto_save_events=['CursorHoldI', 'InsertLeave']
 let g:auto_save_no_updatetime=1
 let g:auto_save_in_insert_mode=1
 let g:auto_save_presave_hook=''
