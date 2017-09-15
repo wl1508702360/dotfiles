@@ -46,9 +46,10 @@ set fillchars+=vert:┃
 set laststatus=2
 set showtabline=2
 set list
-set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
-set colorcolumn=80 " 在80列出显示标记
+set listchars=eol:¬,tab:\ \ ,trail:~,extends:>,precedes:<
+if (version >= 703)
+    set colorcolumn=80 " 在80列出显示标记
+endif
 if (version >= 600)
     set foldcolumn=0
 endif
