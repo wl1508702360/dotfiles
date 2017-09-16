@@ -1,5 +1,6 @@
-" Dacheng Gao's <realgaodacheng@gmail.com>
-" update to 2017-09-12
+" ^_^ Dacheng Gao's <realgaodacheng@gmail.com>
+"  - update 2017-09-16
+"  - much thanks to the Vim creator and many more others
 
 " Reset vimrc {{{
 set nocompatible
@@ -139,9 +140,9 @@ set writebackup
 " }}}
 
 
-" Specify a directory for plugins
-" - avoid using standard Vim directory names like 'plugin'
 " Vim Plug {{{
+" - Specify a directory for plugins
+" - avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
 " sensible.vim: Defaults everyone can agree on
@@ -195,9 +196,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 " }}}
 
-
-" Plugin config of each
-"    ## All is well ###
 
 " NERDTree {{{
 let g:NERDTreeWinSize=28
@@ -352,6 +350,7 @@ endfunction
 " }}}
 
 
+" last exit cursor position {{{
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
 " (happens when dropping a file on gvim).
@@ -363,5 +362,6 @@ if has("autocmd")
                 \   exe "normal! g`\"" |
                 \ endif
 endif
+" }}}
 
 " vim:foldmethod=marker:foldlevel=0
