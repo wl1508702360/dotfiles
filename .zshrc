@@ -7,7 +7,7 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="linuxonly"
+ZSH_THEME="spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -89,3 +89,6 @@ source $ZSH/oh-my-zsh.sh
 if [[ -s "${HOME}/.gdc.sh" ]]; then
     source "${HOME}/.gdc.sh" 
 fi
+
+
+source "/home/kami/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
