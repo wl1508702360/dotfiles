@@ -94,4 +94,4 @@ if [[ -s "${HOME}/.gdc.sh" ]]; then
 fi
 
 
-source "/home/kami/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+source "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
