@@ -66,4 +66,10 @@ if [[ -d /usr/local/redis/bin ]]; then
     export PATH=/usr/local/redis/bin:$PATH
 fi
 
+# go binary
+export GOROOT=/usr/local/go1.9
+if [[ -d $GOROOT/bin ]]; then
+  export PATH=$GOROOT/bin:$PATH
+fi
+
 ## end PATH settings
