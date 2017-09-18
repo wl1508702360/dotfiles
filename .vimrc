@@ -41,6 +41,7 @@ set smartindent
 " UI Layout {{{
 set number              " show line numbers
 set showcmd             " show command in bottom bar
+set smartcase
 set cursorline        " highlight current line
 set ruler
 set wildmenu
@@ -157,7 +158,10 @@ Plug 'scrooloose/nerdcommenter'
 " Up-to-date PHP syntax file (5.3 – 7.1 support)
 Plug 'stanangeloff/php.vim'
 
-" Plug 'shawncplus/phpcomplete.vim'
+" Improved PHP omnicompletion
+Plug 'shawncplus/phpcomplete.vim'
+
+" The official VIm indent script for PHP
 Plug '2072/php-indenting-for-vim'
 
 " Use FriendsOfPHP/PHP-CS-Fixer
@@ -173,15 +177,15 @@ Plug '907th/vim-auto-save'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " A Vim wrapper for running tests on different granularities.
-"Plug 'janko-m/vim-test'
+Plug 'janko-m/vim-test'
 
 " abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
-"Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-abolish'
 
 "Plug 'wincent/command-t'
 
 " fugitive.vim: a Git wrapper so awesome, it should be illegal
-"Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " lean & mean status/tabline for vim that's light as air
 Plug 'vim-airline/vim-airline'
@@ -192,21 +196,37 @@ Plug 'vim-airline/vim-airline-themes'
 " visually displaying indent levels in code
 Plug 'nathanaelkane/vim-indent-guides'
 
+" code-completion engine
+Plug 'Valloric/YouCompleteMe'
+
+" Go development plugin
+Plug 'fatih/vim-go'
+
+" Provide easy code formatting in Vim by integrating existing code formatters.
+Plug 'Chiel92/vim-autoformat'
+
+"Plug 'Raimondi/delimitMate'
+
+Plug 'jiangmiao/auto-pairs'
+
 " Initialize plugin system
 call plug#end()
 " }}}
 
+" Chiel92/vim-autoformat {{{
+noremap <silent> <leader>f :Autoformat<CR>
+" }}}
 
 " NERDTree {{{
 let g:NERDTreeWinSize=32
 " }}}
 
 " vim-test {{{
-nnoremap <silent> <leader>t :TestNearest<CR>
-nnoremap <silent> <leader>T :TestFile<CR>
-nnoremap <silent> <leader>a :TestSuite<CR>
-nnoremap <silent> <leader>l :TestLast<CR>
-nnoremap <silent> <leader>g :TestVisit<CR>
+"nnoremap <silent> <leader>t :TestNearest<CR>
+"nnoremap <silent> <leader>T :TestFile<CR>
+"nnoremap <silent> <leader>a :TestSuite<CR>
+"nnoremap <silent> <leader>l :TestLast<CR>
+"nnoremap <silent> <leader>g :TestVisit<CR>
 " }}}
 
 " vim-indent-guides {{{
