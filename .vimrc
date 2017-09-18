@@ -198,7 +198,7 @@ call plug#end()
 
 
 " NERDTree {{{
-let g:NERDTreeWinSize=28
+let g:NERDTreeWinSize=32
 " }}}
 
 " vim-test {{{

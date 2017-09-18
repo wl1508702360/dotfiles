@@ -16,7 +16,7 @@ URxvt.inputMethod:fcitx
 !urxvt.geometry:80x25
 ! Big window and fixed position (0,0)
 !urxvt.geometry:145x45+0+0
-urxvt.geometry:115x33
+urxvt.geometry:120x33
 
 !-- Fonts --!
 ! Big font
