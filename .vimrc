@@ -108,12 +108,7 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>l :call ToggleNumber()<CR>
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>s :mksession<CR>
-nnoremap <leader>a :Ag
 nnoremap <leader>1 :set number!<CR>
-nnoremap <leader>d :Make!
-nnoremap <leader>r :TestFile<CR>
-nnoremap <leader>g :call RunGoFile()<CR>
-vnoremap <leader>y "+y
 " }}}
 
 " AutoGroups {{{
@@ -205,9 +200,11 @@ Plug 'fatih/vim-go'
 " Provide easy code formatting in Vim by integrating existing code formatters.
 Plug 'Chiel92/vim-autoformat'
 
-"Plug 'Raimondi/delimitMate'
-
+" Vim plugin, insert or delete brackets, parens, quotes in pair
 Plug 'jiangmiao/auto-pairs'
+
+" A Vim alignment plugin
+Plug 'junegunn/vim-easy-align'
 
 " Initialize plugin system
 call plug#end()
@@ -331,6 +328,13 @@ augroup phpSyntaxOverride
     autocmd!
     autocmd FileType php call PhpSyntaxOverride()
 augroup END
+" }}}
+
+" junegunn/vim-easy-align {{{
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap <leader>a <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap <leader>a <Plug>(EasyAlign)
 " }}}
 
 
