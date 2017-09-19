@@ -297,7 +297,7 @@ let g:syntastic_shell="/bin/sh"
 "  " End of php-cs-fixer version 1 config params
 "
 " If you use php-cs-fixer version 2.x
-let g:php_cs_fixer_rules='@PSR2'          " options: --rules (default:@PSR2)
+let g:php_cs_fixer_rules='@PSR2,@Symfony'          " options: --rules (default:@PSR2)
 "let g:php_cs_fixer_cache='.php_cs.cache' " options: --cache-file
 "let g:php_cs_fixer_config_file='.php_cs' " options: --config
 " End of php-cs-fixer version 2 config params
@@ -320,6 +320,8 @@ let g:auto_save_presave_hook=''
 " }}}
 
 " stanangeloff/php.vim {{{
+let g:PHP_removeCRwhenUnix=1
+let g:PHP_vintage_case_default_indent=1
 function! PhpSyntaxOverride()
     hi! def link phpDocTags  phpDefine
     hi! def link phpDocParam phpType
