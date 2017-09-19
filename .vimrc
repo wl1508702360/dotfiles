@@ -11,12 +11,12 @@ runtime! plugin/sensible.vim
 syntax enable           " enable syntax processing
 set background=dark
 colorscheme PaperColor
-hi LineNr ctermbg=16
-hi LineNr ctermfg=243
-hi CursorLineNr ctermbg=16
-hi CursorLineNr ctermfg=202
+hi LineNr ctermbg=16 ctermfg=243
+hi CursorLineNr ctermbg=16 ctermfg=202
 hi NonText ctermfg=239
 hi SpecialKey ctermfg=239
+hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+set cursorline        " highlight current line
 " }}}
 
 " Misc {{{
@@ -42,7 +42,6 @@ set smartindent
 set number              " show line numbers
 set showcmd             " show command in bottom bar
 set smartcase
-set cursorline        " highlight current line
 set ruler
 set wildmenu
 set lazyredraw
@@ -54,7 +53,7 @@ set showtabline=2
 set list
 set listchars=eol:¬,tab:\ \ ,trail:~,extends:>,precedes:<
 if (version >= 703)
-    set colorcolumn=80 " 在80列出显示标记
+    "set colorcolumn=80 " 在80列出显示标记
 endif
 if (version >= 600)
     set foldcolumn=0
@@ -284,32 +283,6 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_shell="/bin/sh"
 " }}}
 
-" vim-php-cs-fixer {{{
-" If php-cs-fixer is in $PATH, you don't need to define line below
-"let g:php_cs_fixer_path='~/php-cs-fixer.phar' " define the path to the php-cs-fixer.phar
-"
-" If you use php-cs-fixer version 1.x
-"let g:php_cs_fixer_level='symfony'                   " options: --level (default:symfony)
-"let g:php_cs_fixer_config='default'                  " options: --config
-" If you want to define specific fixers:
-"let g:php_cs_fixer_fixers_list='linefeed,short_tag' " options: --fixers
-"let g:php_cs_fixer_config_file='.php_cs'            " options: --config-file
-"  " End of php-cs-fixer version 1 config params
-"
-" If you use php-cs-fixer version 2.x
-let g:php_cs_fixer_rules='@PSR2,@Symfony'          " options: --rules (default:@PSR2)
-"let g:php_cs_fixer_cache='.php_cs.cache' " options: --cache-file
-"let g:php_cs_fixer_config_file='.php_cs' " options: --config
-" End of php-cs-fixer version 2 config params
-"
-let g:php_cs_fixer_php_path='php'               " Path to PHP
-let g:php_cs_fixer_enable_default_mapping=0     " Enable the mapping by default (<leader>pcd)
-let g:php_cs_fixer_dry_run=0                    " Call command with dry-run option
-let g:php_cs_fixer_verbose=0                    " Return the output of command if 1, else an inline information.
-"autocmd BufWrite *.php :call PhpCsFixerFixFile()<CR> " run automatically
-nnoremap <silent> <leader>p :call PhpCsFixerFixFile()<CR><CR>
-" }}}
-
 " vim-auto-save {{{
 let g:auto_save=1
 let g:auto_save_silent=0
@@ -337,6 +310,32 @@ augroup END
 xmap <leader>a <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap <leader>a <Plug>(EasyAlign)
+" }}}
+
+" vim-php-cs-fixer {{{
+" If php-cs-fixer is in $PATH, you don't need to define line below
+"let g:php_cs_fixer_path='~/php-cs-fixer.phar' " define the path to the php-cs-fixer.phar
+"
+" If you use php-cs-fixer version 1.x
+"let g:php_cs_fixer_level='symfony'                   " options: --level (default:symfony)
+"let g:php_cs_fixer_config='default'                  " options: --config
+" If you want to define specific fixers:
+"let g:php_cs_fixer_fixers_list='linefeed,short_tag' " options: --fixers
+"let g:php_cs_fixer_config_file='.php_cs'            " options: --config-file
+"  " End of php-cs-fixer version 1 config params
+"
+" If you use php-cs-fixer version 2.x
+let g:php_cs_fixer_rules='@PSR2,@Symfony'          " options: --rules (default:@PSR2)
+"let g:php_cs_fixer_cache='.php_cs.cache' " options: --cache-file
+"let g:php_cs_fixer_config_file='.php_cs' " options: --config
+" End of php-cs-fixer version 2 config params
+"
+let g:php_cs_fixer_php_path='php'               " Path to PHP
+let g:php_cs_fixer_enable_default_mapping=0     " Enable the mapping by default (<leader>pcd)
+let g:php_cs_fixer_dry_run=0                    " Call command with dry-run option
+let g:php_cs_fixer_verbose=0                    " Return the output of command if 1, else an inline information.
+"autocmd BufWrite *.php :call PhpCsFixerFixFile()<CR> " run automatically
+nnoremap <silent> <leader>p :call PhpCsFixerFixFile()<CR><CR>
 " }}}
 
 
