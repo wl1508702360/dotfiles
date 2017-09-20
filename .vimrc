@@ -12,7 +12,7 @@ syntax enable           " enable syntax processing
 set background=dark
 colorscheme PaperColor
 hi LineNr ctermbg=16 ctermfg=243
-hi CursorLineNr ctermbg=16 ctermfg=202
+hi CursorLineNr ctermbg=16 ctermfg=166
 hi NonText ctermfg=239
 hi SpecialKey ctermfg=239
 hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE

@@ -51,7 +51,10 @@ URxvt.foreground:             #C3C3C3
 URxvt.background:             #1C1C1C
 urxvt.colorBD:                #FFFFFF
 urxvt.colorUL:                grey
-urxvt.cursorColor:            #F7F7F7
+! slight white
+!urxvt.cursorColor:            #F7F7F7
+! orange
+urxvt.cursorColor:            #d75f00
 urxvt.troughColor:            #8080F0
 urxvt.hightlightColor:        #F0F0F0
 urxvt.underlineColor:         grey
