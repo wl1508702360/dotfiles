@@ -1,4 +1,5 @@
 !-- Xft settings --!
+
 Xft.dpi:                      96
 Xft.autohint:                 false
 Xft.antialias:                false
