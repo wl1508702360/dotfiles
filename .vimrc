@@ -1,64 +1,168 @@
-" ^_^ Dacheng Gao's <realgaodacheng@gmail.com>
-"  - update 2017-09-16
-"  - much thanks to the Vim creator and many more others
-
-" Reset vimrc {{{
-set nocompatible
+" Environment {{{
+set nocompatible                     " must be first!
 runtime! plugin/sensible.vim
+set encoding=utf-8
+scriptencoding utf-8
 " }}}
 
-" Colors {{{
-syntax enable           " enable syntax processing
+" General {{{
+syntax on
+
+" Setup for securemodelines plugin
+set modelines=1
+let g:secure_modelines_allowed_items = [
+            \ "textwidth", "tw",
+            \ "softtabstop", "sts",
+            \ "tabstop", "ts",
+            \ "shiftwidth", "sw",
+            \ "expandtab", "et", "noexpandtab", "noet",
+            \ "filetype", "ft",
+            \ "foldmethod", "fdm",
+            \ "foldmarker", "fmr",
+            \ "foldlevel", "fdl",
+            \ "readonly", "ro", "noreadonly", "noro",
+            \ "rightleft", "rl", "norightleft", "norl",
+            \ "spell",
+            \ "spelllang"
+            \ ]
+
+set background=dark
+
+" Allow backgrounding buffers without writing them, and remember marks/undo
+" for backgrounded buffers
+set hidden
+set history=1000
+
+set autoread " Read ext. changes when file is unchanged
+
+set wildmenu " Enhanced command-line completion"
+
+" Search settings
+set ignorecase
+set smartcase
+set incsearch " Incremental search
+set hlsearch  " Highlight search
+set showmatch " Show matching braces
+
+set nofoldenable
+set viewoptions=folds,options,cursor,unix,slash
+
+" Make splits open to right/bottom
+set splitright
+set splitbelow
+
+" 'spell' set by default is extremely annoying for any code-like
+" filetype, so I now default to 'nospell' and only turn spelling
+" on for known-useful filetypes.
+set nospell
+set spelllang=en_us
+
+set scrolloff=3 " context off the end of a buffer
+
+set fillchars+=vert:┃
+
+set undofile " Persist undo info in <FILENAME>.un~
+silent !mkdir ~/.vimundo >& /dev/null
+set undodir=~/.vimundo"
+
+" backups
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
+
+" Store temporary files in a central spot
+let vimtmp = $HOME . '/.tmp/' . getpid()
+silent! call mkdir(vimtmp, "p", 0700)
+let &backupdir=vimtmp
+let &directory=vimtmp
+" }}}
+
+" Vim UI {{{
+set backspace=indent,eol,start     " backspace over everything in insert mode
+
 set background=dark
 colorscheme PaperColor
-hi LineNr ctermbg=16 ctermfg=243
-hi CursorLineNr ctermbg=16 ctermfg=166
 hi NonText ctermfg=239
 hi SpecialKey ctermfg=239
 hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+hi CursorLineNr ctermbg=16 ctermfg=166
+hi LineNr ctermbg=16 ctermfg=243
 set cursorline        " highlight current line
+augroup InitColorScheme
+    autocmd!
+    " au VimEnter * colorscheme PaperColor
+    " Non-default backgrounds are the dumbest damn defaults. Glaring and
+    " unreadable, especially if spell is enabled in a code buffer.
+    au VimEnter * hi SpellBad cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
+    au VimEnter * hi SpellCap cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
+    au VimEnter * hi SpellRare cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
+    au VimEnter * hi SpellLocal cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
+augroup END
+
+" Always display the status line, even in the last window
+" -- particularly useful with powerline
+set laststatus=2
+
+set number " Display line numbers ...
+set ruler  " Display line number and column
+
+set showcmd " show what you type
+
+" set wildignore+=.git,.bzr,tmp,public/assets,node_modules
+
+" Switch to an existing tab if the buffer is open, otherwise
+" create a new tab
+" See http://stackoverflow.com/questions/102384/using-vims-tabs-like-buffers
+" set switchbuf=usetab,newtab
+
+" Terminal settings {{{
+
+" Enable mouse/trackpad scrolling
+set mouse=nicr
+" Fix escape delay leaving insert mode
+" via https://powerline.readthedocs.org/en/latest/tipstricks.html
+set ttimeoutlen=10
+augroup FastEscape
+    autocmd!
+    au VimEnter * set timeoutlen=1000
+    au InsertEnter * set timeoutlen=150
+    au InsertLeave * set timeoutlen=1000
+augroup END
+" Fix Cursor in TMUX
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+" }}}
 " }}}
 
-" Misc {{{
-set backspace=indent,eol,start
-set updatetime=5000
-set timeout timeoutlen=1000 ttimeout ttimeoutlen=20
-" }}}
-
-" Spaces & Tabs {{{
-set tabstop=4           " 4 space tab
-set expandtab           " use spaces for tabs
-set softtabstop=4       " 4 space tab
-set shiftwidth=4
-set modelines=1
-filetype indent on
-filetype plugin on
+" Formatting {{{
+set wrap
+set formatoptions=qrn1
+set colorcolumn=80
+" Tabs
 set autoindent
 set smarttab
-set smartindent
-" }}}
+set expandtab
+set shiftwidth=4
+set shiftround
+set softtabstop=4
+set tabstop=4           " 4 space tab
+filetype indent on
+filetype plugin on
 
-" UI Layout {{{
-set number              " show line numbers
-set showcmd             " show command in bottom bar
-set smartcase
-set ruler
-set wildmenu
-set lazyredraw
-set showmatch           " higlight matching parenthesis
-set fillchars+=vert:┃
-set scrolloff=1
-set laststatus=2
-set showtabline=2
-"set list
-"set listchars=eol:¬,tab:\ \ ,trail:~,extends:>,precedes:<
-if (version >= 703)
-    "set colorcolumn=80 " 在80列出显示标记
-endif
-if (version >= 600)
-    set foldcolumn=0
-endif
-set modeline
+function! TrimTrailingWhitespace()
+    keeppattern %s/\s\+$//e
+endfunction
+
+" Syntax-specific settings
+let hs_highlight_types = 1
+let hs_highlight_more_types = 1
 " }}}
 
 " Searching {{{
@@ -84,15 +188,9 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 " }}}
 
-" Line Shortcuts {{{
-nnoremap j gj
-nnoremap k gk
-nnoremap gV `[v`]
-" }}}
-
 " Leader Shortcuts {{{
-inoremap jk <ESC>
-let mapleader=","
+inoremap jj <ESC>
+let mapleader=";"
 nnoremap <leader>q :q<CR>
 nnoremap <leader>b :buffer
 nnoremap <leader>bl :buffers<CR>
@@ -125,15 +223,6 @@ augroup configgroup
     autocmd BufEnter *.md setlocal ft=markdown
 augroup END
 " }}}
-
-" Backups {{{
-set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set writebackup
-" }}}
-
 
 " Vim Plug {{{
 " - Specify a directory for plugins
@@ -237,38 +326,32 @@ let g:indent_guides_default_mapping=1
 " }}}
 
 " CtrlP {{{
-let g:ctrlp_map='<c-p>'  " use <c-p> to invoke ctrlp
-let g:ctrlp_cmd='CtrlPMRU' " make MRU mode as default
-let g:ctrlp_by_filename=0 " use <c-d> to toggle on/off
-let g:ctrlp_regexp=0 " use <c-r> to toggle on/off
-let g:ctrlp_match_window='bottom,order:ttb'
-let g:ctrlp_switch_buffer=0
-let g:ctrlp_tabpane_position='ac' " after current tab
-let g:ctrlp_working_path_mode=0
-let g:ctrlp_use_caching=1
+if !exists("g:ctrlp_extensions")
+    let g:ctrlp_extensions=[]
+endif
+let g:ctrlp_extensions+=['buffertag', 'changes']
+let g:ctrlp_working_path_mode=2
+let g:ctrlp_map='<leader>ff'
+let g:ctrlp_mruf_relative=1
+let g:ctrlp_mruf_exclude='/\.git/.*\|^/tmp/vimpager.*\|^/var/folders.*'
+let g:ctrlp_match_window_reversed=0
+nnoremap <silent> <leader>fb :CtrlPBuffer<CR>
+nnoremap <silent> <leader>fm :CtrlPMRU<CR>
+nnoremap <silent> <leader>ft :CtrlPBufTag<CR>
+let g:ctrlp_cmd='CtrlPMRU'
 let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
 let g:ctrlp_custom_ignore='\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
-let g:ctrlp_show_hidden=1
 " }}}
 
 " airline {{{
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#left_sep=' '
-let g:airline#extensions#tabline#left_alt_sep='|'
 let g:airline_powerline_fonts=1
-let g:airline_symbols_ascii=1
-let g:airline_theme='onedark'
-let g:airline_left_sep=''
-let g:airline_left_alt_sep=''
-let g:airline_right_sep=''
-let g:airline_right_alt_sep=''
-let g:airline_detect_modified=1
-let g:airline_detect_paste=1
-let g:airline_detect_crypt=1
-let g:airline_detect_spell=1
-let g:airline_detect_iminsert=0
-let g:airline_inactive_collapse=1
-let g:airline_skip_empty_sections=1
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#show_buffers=0
+let g:airline#extensions#tabline#tab_nr_type=1
+augroup AirlineColorScheme
+    autocmd!
+    au ColorScheme * AirlineTheme g:colors_name
+augroup END
 " }}}
 
 " syntastic {{{
@@ -338,7 +421,6 @@ let g:php_cs_fixer_verbose=0                    " Return the output of command i
 nnoremap <silent> <leader>p :call PhpCsFixerFixFile()<CR><CR>
 " }}}
 
-
 " Custom Functions {{{
 function! ToggleNumber()
     if(&relativenumber == 1)
@@ -374,7 +456,6 @@ function! <SID>CleanFile()
 endfunction
 " }}}
 
-
 " last exit cursor position {{{
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
@@ -388,5 +469,4 @@ if has("autocmd")
                 \ endif
 endif
 " }}}
-
 " vim:foldmethod=marker:foldlevel=0
