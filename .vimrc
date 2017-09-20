@@ -237,8 +237,8 @@ let g:indent_guides_default_mapping=1
 " }}}
 
 " CtrlP {{{
-let g:ctrlp_map='<c-p>'
-let g:ctrlp_cmd='CtrlP'
+let g:ctrlp_map='<c-p>'  " use <c-p> to invoke ctrlp
+let g:ctrlp_cmd='CtrlPMRU' " make MRU mode as default
 let g:ctrlp_by_filename=0 " use <c-d> to toggle on/off
 let g:ctrlp_regexp=0 " use <c-r> to toggle on/off
 let g:ctrlp_match_window='bottom,order:ttb'
