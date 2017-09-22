@@ -120,7 +120,7 @@ set showcmd " show what you type
 " Terminal settings {{{
 
 " Enable mouse/trackpad scrolling
-set mouse=nicr
+" set mouse=nicr
 " Fix escape delay leaving insert mode
 " via https://powerline.readthedocs.org/en/latest/tipstricks.html
 set ttimeoutlen=10
@@ -408,7 +408,7 @@ nmap <leader>a <Plug>(EasyAlign)
 "  " End of php-cs-fixer version 1 config params
 "
 " If you use php-cs-fixer version 2.x
-let g:php_cs_fixer_rules='@PSR2,@Symfony'          " options: --rules (default:@PSR2)
+let g:php_cs_fixer_rules='@PSR2'          " options: --rules (default:@PSR2)
 "let g:php_cs_fixer_cache='.php_cs.cache' " options: --cache-file
 "let g:php_cs_fixer_config_file='.php_cs' " options: --config
 " End of php-cs-fixer version 2 config params
