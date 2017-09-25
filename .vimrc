@@ -338,7 +338,7 @@ let g:ctrlp_match_window_reversed=0
 nnoremap <silent> <leader>fb :CtrlPBuffer<CR>
 nnoremap <silent> <leader>fm :CtrlPMRU<CR>
 nnoremap <silent> <leader>ft :CtrlPBufTag<CR>
-let g:ctrlp_cmd='CtrlPMRU'
+let g:ctrlp_cmd='CtrlP'
 let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
 let g:ctrlp_custom_ignore='\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
 " }}}
