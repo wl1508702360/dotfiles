@@ -123,7 +123,7 @@ set showcmd " show what you type
 " set mouse=nicr
 " Fix escape delay leaving insert mode
 " via https://powerline.readthedocs.org/en/latest/tipstricks.html
-set ttimeoutlen=10
+set ttimeoutlen=0
 augroup FastEscape
     autocmd!
     au VimEnter * set timeoutlen=1000
