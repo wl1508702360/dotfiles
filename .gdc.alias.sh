@@ -6,7 +6,7 @@ alias t='teamocil --here'
 alias info="info --vi-keys"
 alias chownwww="sudo chown -Rc ${APACHE_USER}.${APACHE_USER} /var/www/html"
 alias chmodwww="sudo chmod -Rc ug+wr /var/www/html"
-alias update="sudo aptitude update && sudo aptitude -y dist-upgrade && sudo aptitude clean && echo 'update ok'"
+alias update="sudo apt update && sudo apt full-upgrade && echo 'update ok'"
 alias google-proxy='google-chrome --proxy-pac-url=file:///home/gdc/.gdc.pac'
 alias takeover="tmux detach -a"
 alias screenshot="scrot -cd 5 -s"
