@@ -64,7 +64,7 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gV `[v`]
 inoremap jk <ESC>
-let mapleader=","
+let mapleader=";"
 nnoremap <leader>q :q<CR>
 nnoremap <leader>b :buffer
 nnoremap <leader>bl :buffers<CR>
