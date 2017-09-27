@@ -4,7 +4,6 @@ runtime! plugin/sensible.vim
 set encoding=utf-8
 scriptencoding utf-8
 " }}}
-
 " General {{{
 syntax on
 
@@ -78,7 +77,6 @@ silent! call mkdir(vimtmp, "p", 0700)
 let &backupdir=vimtmp
 let &directory=vimtmp
 " }}}
-
 " Vim UI {{{
 set backspace=indent,eol,start     " backspace over everything in insert mode
 
@@ -140,7 +138,6 @@ else
 endif
 " }}}
 " }}}
-
 " Formatting {{{
 set wrap
 set formatoptions=qrn1
@@ -164,13 +161,11 @@ endfunction
 let hs_highlight_types = 1
 let hs_highlight_more_types = 1
 " }}}
-
 " Searching {{{
 set ignorecase          " ignore case when searching
 set incsearch           " search as characters are entered
 set hlsearch            " highlight all matches
 " }}}
-
 " Folding {{{
 "=== folding ===
 set foldmethod=indent   " fold based on indent level
@@ -180,14 +175,12 @@ nnoremap <space> za
 set foldlevelstart=10   " start with fold level of 1
 set wildignore+=*/.git/*,*/.svn/*,*/.hg/*
 " }}}
-
 " Window Shortcuts {{{
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 " }}}
-
 " Leader Shortcuts {{{
 inoremap jj <ESC>
 let mapleader=";"
@@ -207,7 +200,6 @@ nnoremap <leader><space> :noh<CR>
 nnoremap <leader>s :mksession<CR>
 nnoremap <leader>1 :set number!<CR>
 " }}}
-
 " AutoGroups {{{
 augroup configgroup
     autocmd!
@@ -223,7 +215,6 @@ augroup configgroup
     autocmd BufEnter *.md setlocal ft=markdown
 augroup END
 " }}}
-
 " Vim Plug {{{
 " - Specify a directory for plugins
 " - avoid using standard Vim directory names like 'plugin'
@@ -297,15 +288,12 @@ Plug 'junegunn/vim-easy-align'
 " Initialize plugin system
 call plug#end()
 " }}}
-
 " Chiel92/vim-autoformat {{{
 noremap <silent> <leader>f :Autoformat<CR>
 " }}}
-
 " NERDTree {{{
 let g:NERDTreeWinSize=32
 " }}}
-
 " vim-test {{{
 "nnoremap <silent> <leader>t :TestNearest<CR>
 "nnoremap <silent> <leader>T :TestFile<CR>
@@ -313,7 +301,6 @@ let g:NERDTreeWinSize=32
 "nnoremap <silent> <leader>l :TestLast<CR>
 "nnoremap <silent> <leader>g :TestVisit<CR>
 " }}}
-
 " vim-indent-guides {{{
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
@@ -324,7 +311,6 @@ let g:indent_guides_tab_guides=1
 let g:indent_guides_exclude_filetypes=['sh', 'help', 'nerdtree']
 let g:indent_guides_default_mapping=1
 " }}}
-
 " CtrlP {{{
 if !exists("g:ctrlp_extensions")
     let g:ctrlp_extensions=[]
@@ -342,35 +328,31 @@ let g:ctrlp_cmd='CtrlP'
 let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
 let g:ctrlp_custom_ignore='\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
 " }}}
-
 " airline {{{
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#tabline#tab_nr_type=1
 " }}}
-
 " syntastic {{{
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 let g:syntastic_php_phpcs_args="--standard=psr2 -n --report=csv"
 let g:syntastic_always_populate_loc_list=1
-let g:syntastic_loc_list_height=5 " default 10
+let g:syntastic_loc_list_height=10 " default 10
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_auto_jump=0
 let g:syntastic_auto_loc_list=1
 let g:syntastic_shell="/bin/sh"
 " }}}
-
 " vim-auto-save {{{
 let g:auto_save=1
 let g:auto_save_silent=0
-let g:auto_save_events=['CursorHoldI', 'InsertLeave']
+let g:auto_save_events=['InsertLeave']
 let g:auto_save_no_updatetime=1
-let g:auto_save_in_insert_mode=1
+let g:auto_save_in_insert_mode=0
 let g:auto_save_presave_hook=''
 " }}}
-
 " stanangeloff/php.vim {{{
 let g:PHP_removeCRwhenUnix=1
 let g:PHP_vintage_case_default_indent=1
@@ -383,14 +365,12 @@ augroup phpSyntaxOverride
     autocmd FileType php call PhpSyntaxOverride()
 augroup END
 " }}}
-
 " junegunn/vim-easy-align {{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap <leader>a <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap <leader>a <Plug>(EasyAlign)
 " }}}
-
 " vim-php-cs-fixer {{{
 " If php-cs-fixer is in $PATH, you don't need to define line below
 "let g:php_cs_fixer_path='~/php-cs-fixer.phar' " define the path to the php-cs-fixer.phar
@@ -416,7 +396,6 @@ let g:php_cs_fixer_verbose=0                    " Return the output of command i
 "autocmd BufWrite *.php :call PhpCsFixerFixFile()<CR> " run automatically
 nnoremap <silent> <leader>p :call PhpCsFixerFixFile()<CR><CR>
 " }}}
-
 " Custom Functions {{{
 function! ToggleNumber()
     if(&relativenumber == 1)
@@ -451,7 +430,6 @@ function! <SID>CleanFile()
     call cursor(l, c)
 endfunction
 " }}}
-
 " last exit cursor position {{{
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
