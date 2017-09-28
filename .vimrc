@@ -199,6 +199,8 @@ nnoremap <leader>l :call ToggleNumber()<CR>
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>s :mksession<CR>
 nnoremap <leader>1 :set number!<CR>
+vmap <leader>y :w! /tmp/vitmp<CR>
+nmap <leader>p :r! cat /tmp/vitmp<CR>
 " }}}
 " AutoGroups {{{
 augroup configgroup
@@ -394,7 +396,7 @@ let g:php_cs_fixer_enable_default_mapping=0     " Enable the mapping by default 
 let g:php_cs_fixer_dry_run=0                    " Call command with dry-run option
 let g:php_cs_fixer_verbose=0                    " Return the output of command if 1, else an inline information.
 "autocmd BufWrite *.php :call PhpCsFixerFixFile()<CR> " run automatically
-nnoremap <silent> <leader>p :call PhpCsFixerFixFile()<CR><CR>
+nnoremap <silent> <leader>pcs :call PhpCsFixerFixFile()<CR><CR>
 " }}}
 " Custom Functions {{{
 function! ToggleNumber()
