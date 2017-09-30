@@ -6,6 +6,8 @@ scriptencoding utf-8
 " }}}
 " General {{{
 syntax on
+set ttyfast
+set lazyredraw
 
 " Setup for securemodelines plugin
 set modelines=1
@@ -85,9 +87,9 @@ colorscheme PaperColor
 hi NonText ctermfg=239
 hi SpecialKey ctermfg=239
 "hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE " only highlight line number, not the line
-hi CursorLineNr ctermbg=16 ctermfg=166
+"hi CursorLineNr ctermbg=16 ctermfg=166
 hi LineNr ctermbg=16 ctermfg=243
-set cursorline        " highlight current line
+set nocursorline
 augroup InitColorScheme
     autocmd!
     " au VimEnter * colorscheme PaperColor
@@ -167,12 +169,10 @@ set incsearch           " search as characters are entered
 set hlsearch            " highlight all matches
 " }}}
 " Folding {{{
-"=== folding ===
-set foldmethod=indent   " fold based on indent level
-set foldnestmax=10      " max 10 depth
-set foldenable          " don't fold files by default on open
+set foldmethod=manual
+set foldnestmax=10
 nnoremap <space> za
-set foldlevelstart=10   " start with fold level of 1
+set foldlevelstart=1
 set wildignore+=*/.git/*,*/.svn/*,*/.hg/*
 " }}}
 " Window Shortcuts {{{
@@ -387,15 +387,14 @@ nmap <leader>a <Plug>(EasyAlign)
 "
 " If you use php-cs-fixer version 2.x
 let g:php_cs_fixer_rules='@PSR2'          " options: --rules (default:@PSR2)
-"let g:php_cs_fixer_cache='.php_cs.cache' " options: --cache-file
-"let g:php_cs_fixer_config_file='.php_cs' " options: --config
+let g:php_cs_fixer_cache='.php_cs.cache' " options: --cache-file
+let g:php_cs_fixer_config_file='.php_cs' " options: --config
 " End of php-cs-fixer version 2 config params
 "
 let g:php_cs_fixer_php_path='php'               " Path to PHP
 let g:php_cs_fixer_enable_default_mapping=0     " Enable the mapping by default (<leader>pcd)
 let g:php_cs_fixer_dry_run=0                    " Call command with dry-run option
-let g:php_cs_fixer_verbose=0                    " Return the output of command if 1, else an inline information.
-"autocmd BufWrite *.php :call PhpCsFixerFixFile()<CR> " run automatically
+let g:php_cs_fixer_verbose=1                    " Return the output of command if 1, else an inline information.
 nnoremap <silent> <leader>pcs :call PhpCsFixerFixFile()<CR><CR>
 " }}}
 " Custom Functions {{{
