@@ -9,7 +9,7 @@ Xft.rgba:                     rgb
 urxvt.intensityStyles:        false
 URxvt.termName:               xterm-256color
 URxvt.inputMethod:            fcitx
-urxvt.geometry:               120x33
+urxvt.geometry:               148x33
 !-- Fonts --!
 urxvt.font:                   -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wenquanyi-wenquanyi bitmap song-medium-r-normal--14-140-75-75-p-80-iso10646-1
 urxvt.boldFont:               -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wenquanyi-wenquanyi bitmap song-medium-r-normal--14-140-75-75-p-80-iso10646-1
