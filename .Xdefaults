@@ -1,8 +1,8 @@
 !-- Xft settings --!
 Xft.dpi:                      96
-Xft.autohint:                 true
-Xft.antialias:                true
-Xft.hinting:                  true
+Xft.autohint:                 false
+Xft.antialias:                false
+Xft.hinting:                  false
 Xft.lcdfilter:                lcddefault
 Xft.hintstyle:                hintslight
 Xft.rgba:                     rgb
@@ -13,8 +13,8 @@ URxvt.geometry:               148x33
 !-- Fonts --!
 URxvt.font:                   -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wenquanyi-wenquanyi bitmap song-medium-r-normal--14-140-75-75-p-80-iso10646-1
 URxvt.boldFont:               -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wenquanyi-wenquanyi bitmap song-medium-r-normal--14-140-75-75-p-80-iso10646-1
-!URxvt.font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
-!URxvt.boldFont:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
+!URxvt.font:                   -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
+!URxvt.boldFont:               -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
 URxvt.letterSpace:            0
 URxvt.cursorBlink:            0
 URxvt.cursorUnderline:        0
@@ -68,8 +68,7 @@ URxvt.scrollBar_floating:     false
 URxvt.scrollstyle:            plain
 URxvt.secondaryScroll:        true
 URxvt.lineSpace:              0
-! how many lines you want it to save per session
-URxvt.saveLines:              32767
+URxvt.saveLines:              0
 URxvt.scrollColor:            #B0B0B0
 ! with this set to true, when an app sends a bell to the terminal, awesome hilights the appropriate tag(s) ;)
 URxvt.urgentOnBell:           true
