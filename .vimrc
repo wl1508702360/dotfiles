@@ -27,8 +27,6 @@ let g:secure_modelines_allowed_items = [
             \ "spelllang"
             \ ]
 
-set background=dark
-
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
 set hidden
@@ -163,13 +161,8 @@ endfunction
 let hs_highlight_types = 1
 let hs_highlight_more_types = 1
 " }}}
-" Searching {{{
-set ignorecase          " ignore case when searching
-set incsearch           " search as characters are entered
-set hlsearch            " highlight all matches
-" }}}
 " Folding {{{
-set foldmethod=manual
+set foldmethod=indent
 set foldnestmax=10
 nnoremap <space> za
 set foldlevelstart=1
