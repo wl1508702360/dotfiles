@@ -1,25 +1,25 @@
 !-- Xft settings --!
 Xft.dpi:                      96
-Xft.autohint:                 false
-Xft.antialias:                false
+Xft.autohint:                 true
+Xft.antialias:                true
 Xft.hinting:                  true
 Xft.lcdfilter:                lcddefault
 Xft.hintstyle:                hintslight
 Xft.rgba:                     rgb
-urxvt.intensityStyles:        false
+URxvt.intensityStyles:        false
 URxvt.termName:               xterm-256color
 URxvt.inputMethod:            fcitx
-urxvt.geometry:               148x33
+URxvt.geometry:               148x33
 !-- Fonts --!
-urxvt.font:                   -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wenquanyi-wenquanyi bitmap song-medium-r-normal--14-140-75-75-p-80-iso10646-1
-urxvt.boldFont:               -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wenquanyi-wenquanyi bitmap song-medium-r-normal--14-140-75-75-p-80-iso10646-1
-!urxvt.font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
-!urxvt.boldFont:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
-urxvt.letterSpace:            0
-urxvt.cursorBlink:            0
-urxvt.cursorUnderline:        0
-urxvt.pointerBlank:           True
-urxvt.pointerBlankDelay:      6
+URxvt.font:                   -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wenquanyi-wenquanyi bitmap song-medium-r-normal--14-140-75-75-p-80-iso10646-1
+URxvt.boldFont:               -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wenquanyi-wenquanyi bitmap song-medium-r-normal--14-140-75-75-p-80-iso10646-1
+!URxvt.font:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
+!URxvt.boldFont:-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,xft:wenquanyi bitmap song:pixelsize=15:antialias=False
+URxvt.letterSpace:            0
+URxvt.cursorBlink:            0
+URxvt.cursorUnderline:        0
+URxvt.pointerBlank:           True
+URxvt.pointerBlankDelay:      6
 ! PaperColor Theme
 !URxvt.foreground:#4D4D4C
 !URxvt.background:#EEEEEE
@@ -49,35 +49,35 @@ URxvt.color7:                 #4D4D4C
 URxvt.color15:                #F5F5F5
 URxvt.foreground:             #C3C3C3
 URxvt.background:             #1C1C1C
-urxvt.colorBD:                #FFFFFF
-urxvt.colorUL:                grey
+URxvt.colorBD:                #FFFFFF
+URxvt.colorUL:                grey
 ! slight white
-!urxvt.cursorColor:            #F7F7F7
+!URxvt.cursorColor:            #F7F7F7
 ! orange
-urxvt.cursorColor:            #d75f00
-urxvt.troughColor:            #8080F0
-urxvt.hightlightColor:        #F0F0F0
-urxvt.underlineColor:         grey
-urxvt.loginShell:             false
-urxvt.meta:                   ignore
-urxvt.utmpInhibit:            true
-urxvt.depth:                  32
-urxvt.scrollBar:              false
-urxvt.scrollBar_right:        true
-urxvt.scrollBar_floating:     false
-urxvt.scrollstyle:            plain
-urxvt.secondaryScroll:        true
-urxvt.lineSpace:              0
+URxvt.cursorColor:            #d75f00
+URxvt.troughColor:            #8080F0
+URxvt.hightlightColor:        #F0F0F0
+URxvt.underlineColor:         grey
+URxvt.loginShell:             false
+URxvt.meta:                   ignore
+URxvt.utmpInhibit:            true
+URxvt.depth:                  32
+URxvt.scrollBar:              false
+URxvt.scrollBar_right:        true
+URxvt.scrollBar_floating:     false
+URxvt.scrollstyle:            plain
+URxvt.secondaryScroll:        true
+URxvt.lineSpace:              0
 ! how many lines you want it to save per session
-urxvt.saveLines:              32767
-urxvt.scrollColor:            #B0B0B0
+URxvt.saveLines:              32767
+URxvt.scrollColor:            #B0B0B0
 ! with this set to true, when an app sends a bell to the terminal, awesome hilights the appropriate tag(s) ;)
-urxvt.urgentOnBell:           true
+URxvt.urgentOnBell:           true
 ! these three lines enable clicking on links to open them ;)
 !# if you want to enable tab support, append ,tabbed to the next line
 !# then use shift+down arrow to create tabs and shift+{left,right} arrows to switch between them
-urxvt.perl-ext-common:        default,clipboard,matcher,-option-popup,-selection-popup,-realine
-urxvt.matcher.button:         1
-urxvt.urlLauncher:            google-chrome
-urxvt.keysym.Shift-Control-V: perl:clipboard:paste
-urxvt.iso14755:               False
+URxvt.perl-ext-common:        default,clipboard,matcher,-option-popup,-selection-popup,-realine
+URxvt.matcher.button:         1
+URxvt.urlLauncher:            google-chrome
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755:               False
