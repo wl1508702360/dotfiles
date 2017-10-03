@@ -84,10 +84,10 @@ set background=dark
 colorscheme PaperColor
 hi NonText ctermfg=239
 hi SpecialKey ctermfg=239
-"hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE " only highlight line number, not the line
-"hi CursorLineNr ctermbg=16 ctermfg=166
+hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE " only highlight line number, not the line
+hi CursorLineNr ctermbg=16 ctermfg=166
 hi LineNr ctermbg=16 ctermfg=243
-set nocursorline
+set cursorline
 augroup InitColorScheme
     autocmd!
     " au VimEnter * colorscheme PaperColor
