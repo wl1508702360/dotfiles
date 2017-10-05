@@ -43,7 +43,7 @@ set incsearch " Incremental search
 set hlsearch  " Highlight search
 set showmatch " Show matching braces
 
-set foldenable
+set nofoldenable
 set viewoptions=folds,options,cursor,unix,slash
 
 " Make splits open to right/bottom
@@ -162,10 +162,10 @@ let hs_highlight_types = 1
 let hs_highlight_more_types = 1
 " }}}
 " Folding {{{
-set foldmethod=indent
-set foldnestmax=10
-nnoremap <space> za
-set foldlevelstart=1
+"set foldmethod=indent
+"set foldnestmax=10
+"nnoremap <space> za
+"set foldlevelstart=1
 set wildignore+=*/.git/*,*/.svn/*,*/.hg/*
 " }}}
 " Window Shortcuts {{{
