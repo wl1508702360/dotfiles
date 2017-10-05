@@ -43,7 +43,7 @@ set incsearch " Incremental search
 set hlsearch  " Highlight search
 set showmatch " Show matching braces
 
-set nofoldenable
+set foldenable
 set viewoptions=folds,options,cursor,unix,slash
 
 " Make splits open to right/bottom
