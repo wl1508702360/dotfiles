@@ -304,7 +304,7 @@ noremap <silent> <leader>f :Autoformat<CR>
 " }}}
 
 " NERDTree {{{
-let g:NERDTreeWinSize=32
+let g:NERDTreeWinSize=28
 " }}}
 
 " vim-test {{{
