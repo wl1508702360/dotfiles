@@ -1,9 +1,16 @@
+" CopyLeft {{{
+" Author: Darren Gao
+" Date: 2017
+" Applied to: PHP
+" }}}
+
 " Environment {{{
 set nocompatible                     " must be first!
 runtime! plugin/sensible.vim
 set encoding=utf-8
 scriptencoding utf-8
 " }}}
+
 " General {{{
 syntax on
 set ttyfast
@@ -43,7 +50,7 @@ set incsearch " Incremental search
 set hlsearch  " Highlight search
 set showmatch " Show matching braces
 
-set nofoldenable
+set foldenable
 set viewoptions=folds,options,cursor,unix,slash
 
 " Make splits open to right/bottom
@@ -77,6 +84,7 @@ silent! call mkdir(vimtmp, "p", 0700)
 let &backupdir=vimtmp
 let &directory=vimtmp
 " }}}
+
 " Vim UI {{{
 set backspace=indent,eol,start     " backspace over everything in insert mode
 
@@ -138,6 +146,7 @@ else
 endif
 " }}}
 " }}}
+
 " Formatting {{{
 set wrap
 set formatoptions=qrn1
@@ -161,19 +170,22 @@ endfunction
 let hs_highlight_types = 1
 let hs_highlight_more_types = 1
 " }}}
+
 " Folding {{{
-"set foldmethod=indent
-"set foldnestmax=10
-"nnoremap <space> za
-"set foldlevelstart=1
+set foldmethod=manual
+set foldnestmax=10
+nnoremap <space> za
+set foldlevelstart=1
 set wildignore+=*/.git/*,*/.svn/*,*/.hg/*
-" }}}
+" }}}"}}}
+
 " Window Shortcuts {{{
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 " }}}
+
 " Leader Shortcuts {{{
 inoremap jj <ESC>
 let mapleader=";"
@@ -195,6 +207,7 @@ nnoremap <leader>1 :set number!<CR>
 vmap <leader>y :w! /tmp/vitmp<CR>
 nmap <leader>p :r! cat /tmp/vitmp<CR>
 " }}}
+
 " AutoGroups {{{
 augroup configgroup
     autocmd!
@@ -208,8 +221,10 @@ augroup configgroup
     autocmd BufEnter *.sh setlocal softtabstop=2
     autocmd BufEnter *.py setlocal tabstop=4
     autocmd BufEnter *.md setlocal ft=markdown
+    autocmd BufEnter *.php setlocal foldmethod=indent
 augroup END
 " }}}
+
 " Vim Plug {{{
 " - Specify a directory for plugins
 " - avoid using standard Vim directory names like 'plugin'
@@ -283,12 +298,15 @@ Plug 'junegunn/vim-easy-align'
 " Initialize plugin system
 call plug#end()
 " }}}
+
 " Chiel92/vim-autoformat {{{
 noremap <silent> <leader>f :Autoformat<CR>
 " }}}
+
 " NERDTree {{{
 let g:NERDTreeWinSize=32
 " }}}
+
 " vim-test {{{
 "nnoremap <silent> <leader>t :TestNearest<CR>
 "nnoremap <silent> <leader>T :TestFile<CR>
@@ -296,6 +314,7 @@ let g:NERDTreeWinSize=32
 "nnoremap <silent> <leader>l :TestLast<CR>
 "nnoremap <silent> <leader>g :TestVisit<CR>
 " }}}
+
 " vim-indent-guides {{{
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_auto_colors=1
@@ -307,6 +326,7 @@ let g:indent_guides_tab_guides=1
 let g:indent_guides_exclude_filetypes=['sh', 'help', 'nerdtree']
 let g:indent_guides_default_mapping=1
 " }}}
+
 " CtrlP {{{
 if !exists("g:ctrlp_extensions")
     let g:ctrlp_extensions=[]
@@ -324,6 +344,7 @@ let g:ctrlp_cmd='CtrlP'
 let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
 let g:ctrlp_custom_ignore='\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
 " }}}
+
 " airline {{{
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
@@ -358,6 +379,7 @@ call airline#parts#define_accent('linenr', 'bold')
 let g:airline_section_z = airline#section#create(['%3p%%  ',
             \ g:airline_symbols.linenr .' ', 'linenr', ':%c '])
 " }}}
+
 " syntastic {{{
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 let g:syntastic_php_phpcs_args="--standard=psr2 -n --report=csv"
@@ -369,6 +391,7 @@ let g:syntastic_auto_jump=0
 let g:syntastic_auto_loc_list=1
 let g:syntastic_shell="/bin/sh"
 " }}}
+
 " vim-auto-save {{{
 let g:auto_save=1
 let g:auto_save_silent=0
@@ -377,6 +400,7 @@ let g:auto_save_no_updatetime=1
 let g:auto_save_in_insert_mode=0
 let g:auto_save_presave_hook=''
 " }}}
+
 " stanangeloff/php.vim {{{
 let g:PHP_removeCRwhenUnix=1
 let g:PHP_vintage_case_default_indent=1
@@ -389,12 +413,14 @@ augroup phpSyntaxOverride
     autocmd FileType php call PhpSyntaxOverride()
 augroup END
 " }}}
+
 " junegunn/vim-easy-align {{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap <leader>a <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap <leader>a <Plug>(EasyAlign)
 " }}}
+
 " vim-php-cs-fixer {{{
 " If php-cs-fixer is in $PATH, you don't need to define line below
 "let g:php_cs_fixer_path='~/php-cs-fixer.phar' " define the path to the php-cs-fixer.phar
@@ -419,6 +445,7 @@ let g:php_cs_fixer_dry_run=0                    " Call command with dry-run opti
 let g:php_cs_fixer_verbose=1                    " Return the output of command if 1, else an inline information.
 nnoremap <silent> <leader>pcs :call PhpCsFixerFixFile()<CR><CR>
 " }}}
+
 " Custom Functions {{{
 function! ToggleNumber()
     if(&relativenumber == 1)
@@ -453,6 +480,7 @@ function! <SID>CleanFile()
     call cursor(l, c)
 endfunction
 " }}}
+
 " last exit cursor position {{{
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
@@ -466,4 +494,5 @@ if has("autocmd")
                 \ endif
 endif
 " }}}
+
 " vim:foldmethod=marker:foldlevel=0
