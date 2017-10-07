@@ -156,13 +156,12 @@ tmux_conf_theme_right_separator_sub='|'
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
-#tmux_conf_theme_status_left=' #S |#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
-#tmux_conf_theme_status_left=' #S '
+#tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
+tmux_conf_theme_status_left=' #S '
 #tmux_conf_theme_status_right='#{prefix}#{pairing}#{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
 #tmux_conf_theme_status_right='#{prefix} %R , %d %b | #{username}#{root} | #{hostname} '
 #tmux_conf_theme_status_right='#{prefix} #[fg=colour233,bg=colour241,bold] %d/%m #[fg=colour233,bg=colour245,bold] %H:%M:%S | #{username}#{root} | #{hostname} '
-tmux_conf_theme_status_right='#{prefix} %H:%M:%S %d/%m | #{username}#{root} | #{hostname} '
+tmux_conf_theme_status_right='#{prefix} %d/%m/%Y %H:%M | #{username}#{root} | #{hostname} '
 
 # status left style
 tmux_conf_theme_status_left_fg='#000000,#e4e4e4,#e4e4e4'  # black, white , white
@@ -181,7 +180,8 @@ tmux_conf_theme_pairing_bg='none'
 tmux_conf_theme_pairing_attr='none'
 
 # prefix indicator
-tmux_conf_theme_prefix='⌨'            # U+2328
+#tmux_conf_theme_prefix='⌨'            # U+2328
+tmux_conf_theme_prefix='=_|'            # my defined ASCII
 tmux_conf_theme_prefix_fg='none'
 tmux_conf_theme_prefix_bg='none'
 tmux_conf_theme_prefix_attr='none'
@@ -236,10 +236,11 @@ tmux_conf_theme_clock_style='24'
 # ------------------------------------------------------------------------------
 # this is the place to override or undo settings
 
+set -g set-titles-string '#S : #W'
+
 # increase history size
 set -g history-limit 10000
-# redraw status line every 1 second
-set -g status-interval 1
+set -g status-interval 30
 
 # center window list for clarity
 #set -g status-justify centre
