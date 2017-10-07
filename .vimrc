@@ -4,6 +4,79 @@
 " Applied to: PHP
 " }}}
 
+" Vim Plug {{{
+" - Specify a directory for plugins
+" - avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" reset vim
+Plug 'tpope/vim-sensible'
+
+" colorschemes
+Plug 'rafi/awesome-vim-colorschemes'
+
+" status line
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" file explorer tree
+Plug 'scrooloose/nerdtree'
+
+" commenter ?
+Plug 'scrooloose/nerdcommenter'
+
+" Up-to-date PHP syntax file (5.3 – 7.1 support)
+Plug 'stanangeloff/php.vim'
+
+" Improved PHP omnicompletion
+Plug 'shawncplus/phpcomplete.vim'
+
+" The official VIm indent script for PHP
+Plug '2072/php-indenting-for-vim'
+
+" Use FriendsOfPHP/PHP-CS-Fixer
+Plug 'stephpy/vim-php-cs-fixer'
+
+" Syntax checking hacks for vim
+Plug 'vim-syntastic/syntastic'
+
+" Automatically save changes to disk
+Plug '907th/vim-auto-save'
+
+" Fuzzy file, buffer, mru, tag, etc finder.
+Plug 'ctrlpvim/ctrlp.vim'
+
+" A Vim wrapper for running tests on different granularities.
+"Plug 'janko-m/vim-test'
+
+" abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
+"Plug 'tpope/vim-abolish'
+
+" fugitive.vim: a Git wrapper so awesome, it should be illegal
+"Plug 'tpope/vim-fugitive'
+
+" visually displaying indent levels in code
+Plug 'nathanaelkane/vim-indent-guides'
+
+" code-completion engine
+Plug 'Valloric/YouCompleteMe'
+
+" Go development plugin
+"Plug 'fatih/vim-go'
+
+" Provide easy code formatting in Vim by integrating existing code formatters.
+Plug 'Chiel92/vim-autoformat'
+
+" Vim plugin, insert or delete brackets, parens, quotes in pair
+Plug 'jiangmiao/auto-pairs'
+
+" A Vim alignment plugin
+Plug 'junegunn/vim-easy-align'
+
+" Initialize plugin system
+call plug#end()
+" }}}
+
 " Environment {{{
 set nocompatible                     " must be first!
 runtime! plugin/sensible.vim
@@ -223,80 +296,6 @@ augroup configgroup
     autocmd BufEnter *.md setlocal ft=markdown
     autocmd BufEnter *.php setlocal foldmethod=indent
 augroup END
-" }}}
-
-" Vim Plug {{{
-" - Specify a directory for plugins
-" - avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
-
-" sensible.vim: Defaults everyone can agree on
-Plug 'tpope/vim-sensible'
-
-" A tree explorer plugin for vim.
-Plug 'scrooloose/nerdtree'
-
-" intensely orgasmic commenting
-Plug 'scrooloose/nerdcommenter'
-
-" Up-to-date PHP syntax file (5.3 – 7.1 support)
-Plug 'stanangeloff/php.vim'
-
-" Improved PHP omnicompletion
-Plug 'shawncplus/phpcomplete.vim'
-
-" The official VIm indent script for PHP
-Plug '2072/php-indenting-for-vim'
-
-" Use FriendsOfPHP/PHP-CS-Fixer
-Plug 'stephpy/vim-php-cs-fixer'
-
-" Syntax checking hacks for vim
-Plug 'vim-syntastic/syntastic'
-
-" Automatically save changes to disk
-Plug '907th/vim-auto-save'
-
-" Fuzzy file, buffer, mru, tag, etc finder.
-Plug 'ctrlpvim/ctrlp.vim'
-
-" A Vim wrapper for running tests on different granularities.
-Plug 'janko-m/vim-test'
-
-" abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
-Plug 'tpope/vim-abolish'
-
-"Plug 'wincent/command-t'
-
-" fugitive.vim: a Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-fugitive'
-
-" lean & mean status/tabline for vim that's light as air
-Plug 'vim-airline/vim-airline'
-
-" A collection of themes for vim-airline
-Plug 'vim-airline/vim-airline-themes'
-
-" visually displaying indent levels in code
-Plug 'nathanaelkane/vim-indent-guides'
-
-" code-completion engine
-Plug 'Valloric/YouCompleteMe'
-
-" Go development plugin
-Plug 'fatih/vim-go'
-
-" Provide easy code formatting in Vim by integrating existing code formatters.
-Plug 'Chiel92/vim-autoformat'
-
-" Vim plugin, insert or delete brackets, parens, quotes in pair
-Plug 'jiangmiao/auto-pairs'
-
-" A Vim alignment plugin
-Plug 'junegunn/vim-easy-align'
-
-" Initialize plugin system
-call plug#end()
 " }}}
 
 " Plugin Customize Configuration {{{
