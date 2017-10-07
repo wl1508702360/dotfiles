@@ -308,6 +308,10 @@ noremap <silent> <leader>f :Autoformat<CR>
 
 " NERDTree {{{
 let g:NERDTreeWinSize=28
+let g:NERDTreeAutoDeleteBuffer=1
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeDirArrows=1
+let g:NERDTreeQuitOnOpen=1
 " }}}
 
 " vim-test {{{
