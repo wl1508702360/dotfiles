@@ -258,18 +258,15 @@ set foldlevelstart=1
 set wildignore+=*/.git/*,*/.svn/*,*/.hg/*
 " }}}"}}}
 
-" Window Shortcuts {{{
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-" }}}
-
-" Leader Shortcuts {{{
+" Shortcuts {{{
+" fast <ESC>
 inoremap jj <ESC>
 inoremap jk <ESC>
 inoremap kj <ESC>
+
+" leaderkey
 let mapleader=";"
+
 nnoremap <leader>q :q<CR>
 nnoremap <leader>b :buffer
 nnoremap <leader>bl :buffers<CR>
@@ -287,6 +284,24 @@ nnoremap <leader><space> :noh<CR>
 nnoremap <leader>1 :set number!<CR>
 vmap <leader>y :w! /tmp/vitmp<CR>
 nmap <leader>p :r! cat /tmp/vitmp<CR>
+
+" Window Shortcuts {{{
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+" }}}
+
+" Tabs Shortcuts {{{
+nnoremap th :tabfirst<CR>
+nnoremap tj :tabnext<CR>
+nnoremap tk :tabprev<CR>
+nnoremap tl :tablast<CR>
+nnoremap tt :tabedit<Space>
+nnoremap tn :tabnext<Space>
+nnoremap tm :tabm<Space>
+nnoremap td :tabclose<CR>
+" }}}
 " }}}
 
 " AutoGroups {{{
