@@ -29,6 +29,7 @@ $config = PhpCsFixer\Config::create()
         'no_unreachable_default_argument_value' => true,
         'no_useless_else' => true,
         'no_useless_return' => true,
+        'not_operator_with_space' => true,
         'ordered_class_elements' => true,
         'ordered_imports' => true,
         'php_unit_strict' => true,
