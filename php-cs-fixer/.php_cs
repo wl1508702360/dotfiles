@@ -43,14 +43,15 @@ $config = PhpCsFixer\Config::create()
         'yoda_style' => true,
     ])
     ->setFinder(
-    PhpCsFixer\Finder::create()
-        ->notPath('vendor')
-        ->notName('')
-        ->in(__DIR__)
-        ->name('*.php')
-        ->ignoreDotFiles(true)
-        ->ignoreVCS(true)
+        PhpCsFixer\Finder::create()
+            ->notPath('vendor')
+            ->notName('')
+            ->in(__DIR__)
+            ->name('*.php')
+            ->ignoreDotFiles(true)
+            ->ignoreVCS(true)
     )
+    ->setUsingCache(false)
 ;
 
 // special handling of fabbot.io service if it's using too old PHP CS Fixer version
