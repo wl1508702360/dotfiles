@@ -323,6 +323,9 @@ augroup END
 
 " Plugin Customize Configuration {{{
 " plug Chiel92/vim-autoformat {{{
+let g:autoformat_autoindent=0
+let g:autoformat_retab=0
+let g:autoformat_remove_trailing_spaces=0
 noremap <silent> <leader>f :Autoformat<CR>
 " }}}
 
@@ -386,11 +389,11 @@ let g:airline#extensions#tabline#tab_nr_type=1
 
 " plug syntastic {{{
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-let g:syntastic_php_phpcs_args="--standard=psr2 -n --report=csv"
+let g:syntastic_php_phpcs_args="--standard=psr2 -w --report=csv"
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_loc_list_height=10 " default 10
 let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
+let g:syntastic_check_on_wq=1
 let g:syntastic_auto_jump=0
 let g:syntastic_auto_loc_list=1
 let g:syntastic_shell="/bin/sh"
@@ -403,19 +406,6 @@ let g:auto_save_events=['InsertLeave']
 let g:auto_save_no_updatetime=1
 let g:auto_save_in_insert_mode=0
 let g:auto_save_presave_hook=''
-" }}}
-
-" plug stanangeloff/php.vim {{{
-let g:PHP_removeCRwhenUnix=1
-let g:PHP_vintage_case_default_indent=1
-function! PhpSyntaxOverride()
-    hi! def link phpDocTags  phpDefine
-    hi! def link phpDocParam phpType
-endfunction
-augroup phpSyntaxOverride
-    autocmd!
-    autocmd FileType php call PhpSyntaxOverride()
-augroup END
 " }}}
 
 " plug junegunn/vim-easy-align {{{
@@ -439,7 +429,20 @@ let g:php_cs_fixer_php_path='php'               " Path to PHP
 let g:php_cs_fixer_enable_default_mapping=1     " Enable the mapping by default (<leader>pcd)
 let g:php_cs_fixer_dry_run=0                    " Call command with dry-run option
 let g:php_cs_fixer_verbose=0                    " Return the output of command if 1, else an inline information.
-nnoremap <silent> <leader>pcs :call PhpCsFixerFixFile()<CR><CR>
+nnoremap <silent> <leader>pcf :call PhpCsFixerFixFile()<CR><CR>
+" }}}
+
+" plug stanangeloff/php.vim {{{
+let g:PHP_removeCRwhenUnix=1
+let g:PHP_vintage_case_default_indent=1
+function! PhpSyntaxOverride()
+    hi! def link phpDocTags  phpDefine
+    hi! def link phpDocParam phpType
+endfunction
+augroup phpSyntaxOverride
+    autocmd!
+    autocmd FileType php call PhpSyntaxOverride()
+augroup END
 " }}}
 " }}}
 
