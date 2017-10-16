@@ -400,10 +400,10 @@ let g:syntastic_echo_current_error=1
 let g:syntastic_cursor_column=0
 let g:syntastic_enable_signs=1
 let g:syntastic_enable_highlighting=1
-let g:syntastic_auto_jump=3 "jump to first err if any, no err no jump
+let g:syntastic_auto_jump=0 "jump to first err if any, no err no jump
 let g:syntastic_shell="/bin/sh"
 " php checker
-let g:syntastic_php_checkers=['phpcs', 'phpmd', 'phpstan']
+let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 let g:syntastic_php_phpcs_args="--standard=psr2 -q -w" " -w means errors and warnings
 " }}}
 
