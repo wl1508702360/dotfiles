@@ -252,7 +252,7 @@ let hs_highlight_more_types = 1
 " Folding {{{
 set foldenable
 set foldmethod=manual
-set foldlevelstart=3
+set foldlevelstart=2
 set foldnestmax=10
 nnoremap <space> za
 set wildignore+=*/.git/*,*/.svn/*,*/.hg/*
