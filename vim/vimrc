@@ -129,7 +129,6 @@ set incsearch " Incremental search
 set hlsearch  " Highlight search
 set showmatch " Show matching braces
 
-set foldenable
 set viewoptions=folds,options,cursor,unix,slash
 
 " Make splits open to right/bottom
@@ -251,10 +250,11 @@ let hs_highlight_more_types = 1
 " }}}
 
 " Folding {{{
+set foldenable
 set foldmethod=manual
+set foldlevelstart=3
 set foldnestmax=10
 nnoremap <space> za
-set foldlevelstart=1
 set wildignore+=*/.git/*,*/.svn/*,*/.hg/*
 " }}}"}}}
 
