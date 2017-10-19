@@ -170,20 +170,20 @@ set background=dark
 colorscheme PaperColor
 hi NonText ctermfg=239
 hi SpecialKey ctermfg=239
-"hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE " only highlight line number, not the line
-hi CursorLineNr ctermbg=16 ctermfg=166
-hi LineNr ctermbg=16 ctermfg=243
+hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE " only highlight line number, not the line
+"hi CursorLineNr ctermbg=16 ctermfg=166
+"hi LineNr ctermbg=16 ctermfg=243
 set cursorline
-augroup InitColorScheme
-    autocmd!
+"augroup InitColorScheme
+    "autocmd!
     " au VimEnter * colorscheme PaperColor
     " Non-default backgrounds are the dumbest damn defaults. Glaring and
     " unreadable, especially if spell is enabled in a code buffer.
-    au VimEnter * hi SpellBad cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
-    au VimEnter * hi SpellCap cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
-    au VimEnter * hi SpellRare cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
-    au VimEnter * hi SpellLocal cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
-augroup END
+    "au VimEnter * hi SpellBad cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
+    "au VimEnter * hi SpellCap cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
+    "au VimEnter * hi SpellRare cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
+    "au VimEnter * hi SpellLocal cterm=undercurl ctermbg=233 gui=undercurl guibg=bg
+"augroup END
 
 " Always display the status line, even in the last window
 " -- particularly useful with powerline
