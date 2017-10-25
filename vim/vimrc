@@ -144,6 +144,23 @@ set scrolloff=3 " context off the end of a buffer
 
 set fillchars+=vert:┃
 
+"set undofile " Persist undo info in <FILENAME>.un~
+"silent !mkdir ~/.vimundo >& /dev/null
+"set undodir=~/.vimundo"
+
+" backups
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
+
+" Store temporary files in a central spot
+"let vimtmp = $HOME . '/.tmp/' . getpid()
+"silent! call mkdir(vimtmp, "p", 0700)
+"let &backupdir=vimtmp
+"let &directory=vimtmp
+
 " }}}
 
 " Vim UI {{{
