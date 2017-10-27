@@ -211,7 +211,6 @@ set nofoldenable
 set foldmethod=manual
 set foldlevelstart=1
 set foldnestmax=10
-nnoremap <space> zA
 set wildignore+=*/.git/*,*/.svn/*,*/.hg/*
 " }}}"}}}
 
@@ -222,7 +221,7 @@ inoremap jk <ESC>
 inoremap kj <ESC>
 
 " leaderkey
-let mapleader=";"
+let mapleader=" "
 
 nnoremap <leader>q :q<CR>
 nnoremap <leader>b :buffer
