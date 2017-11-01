@@ -9,7 +9,7 @@ Xft.rgba:                     rgb
 URxvt.intensityStyles:        false
 URxvt.termName:               xterm-256color
 URxvt.inputMethod:            fcitx
-URxvt.geometry:               120x26
+URxvt.geometry:               120x28
 !-- Fonts --!
 URxvt.font:                   -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wenquanyi-wenquanyi bitmap song-medium-r-normal--14-140-75-75-p-80-iso10646-1
 URxvt.boldFont:               -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1,-wenquanyi-wenquanyi bitmap song-medium-r-normal--14-140-75-75-p-80-iso10646-1
@@ -48,7 +48,8 @@ URxvt.color14:                #3E999F
 URxvt.color7:                 #4D4D4C
 URxvt.color15:                #F5F5F5
 URxvt.foreground:             #C3C3C3
-URxvt.background:             #1C1C1C
+!URxvt.background:             #1C1C1C
+URxvt.background:             black
 URxvt.colorBD:                #FFFFFF
 URxvt.colorUL:                grey
 ! slight white
