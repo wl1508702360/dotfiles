@@ -41,14 +41,14 @@ if [[ -d $HOME/.bin ]]; then
 fi
 
 # JAVA_HOME
-if [[ -d /opt/jdk1.8.0_121 ]]; then
-    export JAVA_HOME=/opt/jdk1.8.0_121
-    export PATH=$PATH:$JAVA_HOME/bin
+if [[ -d /opt/oracle/jdk-9.0.1 ]]; then
+    export JAVA_HOME=/opt/oracle/jdk-9.0.1
+    export PATH=$JAVA_HOME/bin:$PATH
 fi
 
 # eclipse
 if [[ -d /opt/eclipse ]]; then
-    export PATH=$PATH:/opt/eclipse
+    export PATH=/opt/eclipse:$PATH
 fi
 
 # composer
