@@ -29,7 +29,7 @@ export GST_ID3_TAG_ENCODING=GBK:UTF-8:GB18030
 export GST_ID3V2_TAG_ENCOD ING=GBK:UTF-8:GB18030
 
 # man
-export MANWIDTH=80
+export MANWIDTH=120
 
 ## PATH settings below
 unset PATH
@@ -41,14 +41,19 @@ if [[ -d $HOME/.bin ]]; then
 fi
 
 # JAVA_HOME
-if [[ -d /opt/oracle/jdk-9.0.1 ]]; then
-    export JAVA_HOME=/opt/oracle/jdk-9.0.1
+if [[ -d /opt/oracle/jdk1.8.0_152 ]]; then
+    export JAVA_HOME=/opt/oracle/jdk1.8.0_152
     export PATH=$JAVA_HOME/bin:$PATH
 fi
 
 # eclipse
 if [[ -d /opt/eclipse ]]; then
     export PATH=/opt/eclipse:$PATH
+fi
+
+# intellij idea
+if [[ -d /opt/intellij/idea-IC-172.4343.14 ]]; then
+  export PATH=/opt/intellij/idea-IC-172.4343.14/bin:$PATH
 fi
 
 # composer
