@@ -245,7 +245,7 @@ nnoremap td :tabclose<CR>
 augroup configgroup
     autocmd!
     autocmd VimEnter * highlight clear SignColumn
-    autocmd BufWritePre *.vimrc,*.sh,*.php,*.py,*.js,*.txt,*.hs,*.java,*.md,*.rb :call <SID>StripTrailingWhitespaces()
+    autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
     autocmd BufEnter *.cls setlocal filetype=java
     autocmd BufEnter *.zsh-theme setlocal filetype=zsh
     autocmd BufEnter Makefile setlocal noexpandtab
@@ -262,7 +262,7 @@ augroup END
 " plug Chiel92/vim-autoformat {{{
 let g:autoformat_autoindent=0
 let g:autoformat_retab=0
-let g:autoformat_remove_trailing_spaces=0
+let g:autoformat_remove_trailing_spaces=1
 noremap <silent> <leader>f :Autoformat<CR>
 " }}}
 
