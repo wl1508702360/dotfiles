@@ -1,7 +1,11 @@
-" CopyLeft {{{
-" Author: Darren Gao
-" Date: 2017
-" Applied to: PHP
+" Environment {{{
+if &compatible
+    set nocompatible
+endif
+set runtimepath+=~/.vim/autoload
+runtime! plugin/sensible.vim
+set encoding=utf-8
+scriptencoding utf-8
 " }}}
 
 " Vim Plug {{{
@@ -25,16 +29,13 @@ Plug 'scrooloose/nerdtree'
 " NERDTree tabs
 Plug 'jistr/vim-nerdtree-tabs'
 
-" commenter ?
-Plug 'scrooloose/nerdcommenter'
-
 " Up-to-date PHP syntax file (5.3 – 7.1 support)
 Plug 'stanangeloff/php.vim'
 
 " Improved PHP omnicompletion
 Plug 'shawncplus/phpcomplete.vim'
 
-" The official VIm indent script for PHP
+" The official Vim indent script for PHP
 Plug '2072/php-indenting-for-vim'
 
 " Use FriendsOfPHP/PHP-CS-Fixer
@@ -83,36 +84,14 @@ Plug 'vim-scripts/fcitx.vim'
 call plug#end()
 " }}}
 
-" Environment {{{
-set nocompatible                     " must be first!
-runtime! plugin/sensible.vim
-set encoding=utf-8
-scriptencoding utf-8
-" }}}
-
 " General {{{
+" Setup for securemodelines plugin
+set modelines=1
+
 set term=screen-256color
 syntax on
 set ttyfast
 set lazyredraw
-
-" Setup for securemodelines plugin
-set modelines=1
-let g:secure_modelines_allowed_items = [
-            \ "textwidth", "tw",
-            \ "softtabstop", "sts",
-            \ "tabstop", "ts",
-            \ "shiftwidth", "sw",
-            \ "expandtab", "et", "noexpandtab", "noet",
-            \ "filetype", "ft",
-            \ "foldmethod", "fdm",
-            \ "foldmarker", "fmr",
-            \ "foldlevel", "fdl",
-            \ "readonly", "ro", "noreadonly", "noro",
-            \ "rightleft", "rl", "norightleft", "norl",
-            \ "spell",
-            \ "spelllang"
-            \ ]
 
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
@@ -176,7 +155,7 @@ hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE " only 
 "hi LineNr ctermbg=16 ctermfg=243
 set cursorline
 set laststatus=2
-set number
+set nonumber
 set ruler
 set showcmd
 
@@ -208,12 +187,12 @@ filetype plugin on
 " }}}
 
 " Folding {{{
-set nofoldenable
 set foldmethod=manual
+set foldenable
 set foldlevelstart=1
 set foldnestmax=10
 set wildignore+=*/.git/*,*/.svn/*,*/.hg/*
-" }}}"}}}
+" }}}
 
 " Shortcuts {{{
 " fast <ESC>
@@ -222,7 +201,7 @@ inoremap jk <ESC>
 inoremap kj <ESC>
 
 " leaderkey
-let mapleader=" "
+let mapleader="\<space>"
 
 nnoremap <leader>q :q<CR>
 nnoremap <leader>b :buffer
