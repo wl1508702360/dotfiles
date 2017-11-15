@@ -90,8 +90,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 if [[ -s "${HOME}/.gdc.sh" ]]; then
-    source "${HOME}/.gdc.sh" 
+    source "${HOME}/.gdc.sh"
 fi
-
 
 source "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
