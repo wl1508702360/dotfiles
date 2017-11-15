@@ -48,8 +48,8 @@ URxvt.color14:                #3E999F
 URxvt.color7:                 #4D4D4C
 URxvt.color15:                #F5F5F5
 URxvt.foreground:             #C3C3C3
-!URxvt.background:             #1C1C1C
-URxvt.background:             black
+URxvt.background:             #1C1C1C
+!URxvt.background:             black
 URxvt.colorBD:                #FFFFFF
 URxvt.colorUL:                grey
 ! slight white
