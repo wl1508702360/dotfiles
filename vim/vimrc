@@ -254,7 +254,7 @@ augroup configgroup
     autocmd BufEnter *.sh setlocal softtabstop=2
     autocmd BufEnter *.py setlocal tabstop=4
     autocmd BufEnter *.md setlocal ft=markdown
-    autocmd BufEnter *.php setlocal foldmethod=indent
+    " autocmd BufEnter *.php setlocal foldmethod=indent
 augroup END
 " }}}
 
