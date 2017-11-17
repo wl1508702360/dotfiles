@@ -155,7 +155,6 @@ nnoremap <leader>bl :buffers<CR>
 nnoremap <leader><C-p> :bprev<CR>
 nnoremap <leader><C-n> :bnext<CR>
 nnoremap <leader>m :silent make\|redraw!\|cw<CR>
-nnoremap <leader>t :NERDTreeTabsToggle<CR>
 nnoremap <leader>h :noh<CR>
 nnoremap <leader>l :call ToggleNumber()<CR>
 nnoremap <leader>1 :set number!<CR>
