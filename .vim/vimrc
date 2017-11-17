@@ -9,7 +9,6 @@ Plug 'stanangeloff/php.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'vim-scripts/fcitx.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'vim-syntastic/syntastic'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -159,7 +158,6 @@ nnoremap <leader>t :NERDTreeTabsToggle<CR>
 nnoremap <leader>h :A<CR>
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap <leader>sc :SyntasticCheck<CR>
 nnoremap <leader>l :call ToggleNumber()<CR>
 nnoremap <leader>1 :set number!<CR>
 vmap <leader>y :w! /tmp/vitmp<CR>
@@ -257,26 +255,6 @@ let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
 let g:ctrlp_custom_ignore='\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
 " }}}
 
-" plug syntastic {{{
-let g:syntastic_always_populate_loc_list=0
-let g:syntastic_auto_loc_list=1
-let g:syntastic_loc_list_height=5
-let g:syntastic_check_on_open=0
-let g:syntastic_check_on_wq=0
-let g:syntastic_aggregate_errors=1
-let g:syntastic_id_checkers=1
-let g:syntastic_sort_aggregated_errors=0
-let g:syntastic_echo_current_error=1
-let g:syntastic_cursor_column=0
-let g:syntastic_enable_signs=1
-let g:syntastic_enable_highlighting=1
-let g:syntastic_auto_jump=0 "jump to first err if any, no err no jump
-let g:syntastic_shell="/bin/sh"
-" php checker
-let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-let g:syntastic_php_phpcs_args="--standard=psr2 -q -w" " -w means errors and warnings
-" }}}
-
 " plug vim-auto-save {{{
 "let g:auto_save=1
 "let g:auto_save_silent=0
@@ -334,6 +312,14 @@ let g:lightline = {
             \   'gitbranch': 'fugitive#head'
             \ },
             \ }
+" }}}
+
+" plug ale {{{
+let g:ale_fix_on_save = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '<%severity%> %s [%linter%]'
+let g:ale_php_phpcs_standard='PSR2'
 " }}}
 
 " }}}
