@@ -303,6 +303,9 @@ augroup END
 " }}}
 
 " plug lightline and ale-lightline {{{
+let g:ale_set_loclist=1
+let g:ale_open_list=1
+let g:ale_list_window_size=6
 let g:lightline = {
             \ 'colorscheme': 'PaperColor',
             \ 'active': {
