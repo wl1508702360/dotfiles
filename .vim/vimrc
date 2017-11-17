@@ -88,6 +88,8 @@ call plug#end()
 syntax enable
 filetype indent on
 filetype plugin on
+set visualbell
+set noerrorbells
 set modelines=1
 set term=screen-256color
 set ttyfast
@@ -164,6 +166,11 @@ set shiftwidth=4
 set shiftround
 set softtabstop=4
 set tabstop=4           " 4 space tab
+set list
+"set listchars=tab:>-
+set listchars=tab:»·
+set listchars+=eol:$
+set listchars+=trail:·
 " }}}
 
 " Folding {{{
