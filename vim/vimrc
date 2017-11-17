@@ -27,16 +27,16 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 
 " NERDTree tabs
-Plug 'jistr/vim-nerdtree-tabs'
+"Plug 'jistr/vim-nerdtree-tabs'
 
 " Up-to-date PHP syntax file (5.3 – 7.1 support)
 Plug 'stanangeloff/php.vim'
 
 " Improved PHP omnicompletion
-Plug 'shawncplus/phpcomplete.vim'
+"Plug 'shawncplus/phpcomplete.vim'
 
 " The official Vim indent script for PHP
-Plug '2072/php-indenting-for-vim'
+"Plug '2072/php-indenting-for-vim'
 
 " Use FriendsOfPHP/PHP-CS-Fixer
 Plug 'stephpy/vim-php-cs-fixer'
@@ -45,7 +45,7 @@ Plug 'stephpy/vim-php-cs-fixer'
 Plug 'vim-syntastic/syntastic'
 
 " Automatically save changes to disk
-Plug '907th/vim-auto-save'
+"Plug '907th/vim-auto-save'
 
 " Fuzzy file, buffer, mru, tag, etc finder.
 Plug 'ctrlpvim/ctrlp.vim'
@@ -63,13 +63,13 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 
 " code-completion engine
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 
 " Go development plugin
 "Plug 'fatih/vim-go'
 
 " Provide easy code formatting in Vim by integrating existing code formatters.
-Plug 'Chiel92/vim-autoformat'
+"Plug 'Chiel92/vim-autoformat'
 
 " Vim plugin, insert or delete brackets, parens, quotes in pair
 Plug 'jiangmiao/auto-pairs'
@@ -85,43 +85,26 @@ call plug#end()
 " }}}
 
 " General {{{
-" Setup for securemodelines plugin
+syntax enable
+filetype indent on
+filetype plugin on
 set modelines=1
-
 set term=screen-256color
-syntax on
 set ttyfast
 set lazyredraw
-
-" Allow backgrounding buffers without writing them, and remember marks/undo
-" for backgrounded buffers
 set hidden
 set history=1000
-
 set autoread
 set wildmenu
-
-" Search settings
 set ignorecase
 set smartcase
-set incsearch " Incremental search
-set hlsearch  " Highlight search
-set showmatch " Show matching braces
-
+set incsearch
+set hlsearch
+set showmatch
 set viewoptions=folds,options,cursor,unix,slash
-
-" Make splits open to right/bottom
 set splitright
 set splitbelow
-
-" 'spell' set by default is extremely annoying for any code-like
-" filetype, so I now default to 'nospell' and only turn spelling
-" on for known-useful filetypes.
-set nospell
-set spelllang=en_us
-
-set scrolloff=3 " context off the end of a buffer
-
+set scrolloff=3
 set fillchars+=vert:┃
 
 "set undofile " Persist undo info in <FILENAME>.un~
@@ -150,7 +133,7 @@ set background=dark
 colorscheme PaperColor
 "hi NonText ctermfg=239
 "hi SpecialKey ctermfg=239
-hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE " only highlight line number, not the line
+"hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE " only highlight line number, not the line
 "hi CursorLineNr ctermbg=16 ctermfg=166
 "hi LineNr ctermbg=16 ctermfg=243
 set cursorline
@@ -181,9 +164,6 @@ set shiftwidth=4
 set shiftround
 set softtabstop=4
 set tabstop=4           " 4 space tab
-filetype indent on
-filetype plugin on
-
 " }}}
 
 " Folding {{{
@@ -347,12 +327,12 @@ let g:syntastic_php_phpcs_args="--standard=psr2 -q -w" " -w means errors and war
 " }}}
 
 " plug vim-auto-save {{{
-let g:auto_save=1
-let g:auto_save_silent=0
-let g:auto_save_events=['InsertLeave']
-let g:auto_save_no_updatetime=1
-let g:auto_save_in_insert_mode=0
-let g:auto_save_presave_hook=''
+"let g:auto_save=1
+"let g:auto_save_silent=0
+"let g:auto_save_events=['InsertLeave']
+"let g:auto_save_no_updatetime=1
+"let g:auto_save_in_insert_mode=0
+"let g:auto_save_presave_hook=''
 " }}}
 
 " plug junegunn/vim-easy-align {{{
@@ -391,6 +371,7 @@ augroup phpSyntaxOverride
     autocmd FileType php call PhpSyntaxOverride()
 augroup END
 " }}}
+
 " }}}
 
 " Custom Functions {{{
