@@ -91,7 +91,7 @@ colorscheme PaperColor
 "hi LineNr ctermbg=16 ctermfg=243
 set cursorline
 set laststatus=2
-set nonumber
+set number
 set ruler
 set showcmd
 set noshowmode
