@@ -8,6 +8,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'stanangeloff/php.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'vim-scripts/fcitx.vim'
+Plug 'maximbaz/lightline-ale'
 Plug 'junegunn/vim-easy-align'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'rafi/awesome-vim-colorschemes'
@@ -301,24 +302,42 @@ augroup phpSyntaxOverride
 augroup END
 " }}}
 
-" plug lightline {{{
+" {{{
+" }}}
+
+" plug lightline and ale-lightline {{{
 let g:lightline = {
             \ 'colorscheme': 'PaperColor',
             \ 'active': {
-            \   'left': [ [ 'mode', 'paste'  ],
-            \             [ 'gitbranch', 'readonly', 'filename', 'modified'  ] ]
+            \   'left': [   [ 'mode', 'paste'  ],
+            \               [ 'gitbranch', 'readonly', 'filename', 'modified'  ] ],
+            \   'right': [  [ 'linter_errors', 'linter_warnings', 'linter_ok'  ],
+            \               [ 'lineinfo'  ],
+            \               [ 'percent'  ],
+            \               [ 'fileformat', 'fileencoding', 'filetype',  ] ]
             \ },
             \ 'component_function': {
             \   'gitbranch': 'fugitive#head'
             \ },
+            \ 'component_expand': {
+            \   'linter_warnings': 'lightline#ale#warnings',
+            \   'linter_errors': 'lightline#ale#errors',
+            \   'linter_ok': 'lightline#ale#ok',
+            \ },
+            \ 'component_type': {
+            \   'linter_warnings': 'warning',
+            \   'linter_errors': 'error',
+            \ }
             \ }
 " }}}
 
 " plug ale {{{
-let g:ale_fix_on_save = 1
+let g:ale_linters = {
+            \ 'php': ['php', 'phpcs', 'phpmd'],
+            \}
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '<%severity%> %s [%linter%]'
+let g:ale_echo_msg_format = '<%severity%> [%linter%] %s'
 let g:ale_php_phpcs_standard='PSR2'
 " }}}
 
