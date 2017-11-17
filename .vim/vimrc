@@ -302,9 +302,6 @@ augroup phpSyntaxOverride
 augroup END
 " }}}
 
-" {{{
-" }}}
-
 " plug lightline and ale-lightline {{{
 let g:lightline = {
             \ 'colorscheme': 'PaperColor',
