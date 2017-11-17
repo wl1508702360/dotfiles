@@ -147,15 +147,12 @@ noremap <Right> <NOP>
 let mapleader="\<space>"
 
 nnoremap <leader><leader> :
-nnoremap <leader>s :w<CR>
-nnoremap <leader>q :q<CR>
 nnoremap <leader>n :NERDTreeToggle .<CR>
 nnoremap <leader>b :buffer
 nnoremap <leader>bl :buffers<CR>
 nnoremap <leader><C-p> :bprev<CR>
 nnoremap <leader><C-n> :bnext<CR>
 nnoremap <leader>m :silent make\|redraw!\|cw<CR>
-nnoremap <leader>h :noh<CR>
 nnoremap <leader>l :call ToggleNumber()<CR>
 nnoremap <leader>1 :set number!<CR>
 vmap <leader>y :w! /tmp/vitmp<CR>
