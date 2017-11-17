@@ -1,3 +1,31 @@
+" start plugins {{{
+call plug#begin('~/.vim/plugged')
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-sensible'
+Plug 'scrooloose/nerdtree'
+Plug 'jiangmiao/auto-pairs'
+Plug 'stanangeloff/php.vim'
+Plug 'vim-scripts/fcitx.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-syntastic/syntastic'
+Plug 'stephpy/vim-php-cs-fixer'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'nathanaelkane/vim-indent-guides'
+"Plug 'fatih/vim-go'
+"Plug 'janko-m/vim-test'
+"Plug 'tpope/vim-abolish'
+"Plug 'tpope/vim-fugitive'
+"Plug '907th/vim-auto-save'
+"Plug 'Chiel92/vim-autoformat'
+"Plug 'Valloric/YouCompleteMe'
+"Plug 'jistr/vim-nerdtree-tabs'
+"Plug '2072/php-indenting-for-vim'
+"Plug 'shawncplus/phpcomplete.vim'
+call plug#end()
+" }}}
+
 " Environment {{{
 if &compatible
     set nocompatible
@@ -6,82 +34,6 @@ set runtimepath+=~/.vim/autoload
 runtime! plugin/sensible.vim
 set encoding=utf-8
 scriptencoding utf-8
-" }}}
-
-" Vim Plug {{{
-" - Specify a directory for plugins
-" - avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
-
-" reset vim
-Plug 'tpope/vim-sensible'
-
-" colorschemes
-Plug 'rafi/awesome-vim-colorschemes'
-
-" status line
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" file explorer tree
-Plug 'scrooloose/nerdtree'
-
-" NERDTree tabs
-"Plug 'jistr/vim-nerdtree-tabs'
-
-" Up-to-date PHP syntax file (5.3 – 7.1 support)
-Plug 'stanangeloff/php.vim'
-
-" Improved PHP omnicompletion
-"Plug 'shawncplus/phpcomplete.vim'
-
-" The official Vim indent script for PHP
-"Plug '2072/php-indenting-for-vim'
-
-" Use FriendsOfPHP/PHP-CS-Fixer
-Plug 'stephpy/vim-php-cs-fixer'
-
-" Syntax checking hacks for vim
-Plug 'vim-syntastic/syntastic'
-
-" Automatically save changes to disk
-"Plug '907th/vim-auto-save'
-
-" Fuzzy file, buffer, mru, tag, etc finder.
-Plug 'ctrlpvim/ctrlp.vim'
-
-" A Vim wrapper for running tests on different granularities.
-"Plug 'janko-m/vim-test'
-
-" abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
-"Plug 'tpope/vim-abolish'
-
-" fugitive.vim: a Git wrapper so awesome, it should be illegal
-"Plug 'tpope/vim-fugitive'
-
-" visually displaying indent levels in code
-Plug 'nathanaelkane/vim-indent-guides'
-
-" code-completion engine
-"Plug 'Valloric/YouCompleteMe'
-
-" Go development plugin
-"Plug 'fatih/vim-go'
-
-" Provide easy code formatting in Vim by integrating existing code formatters.
-"Plug 'Chiel92/vim-autoformat'
-
-" Vim plugin, insert or delete brackets, parens, quotes in pair
-Plug 'jiangmiao/auto-pairs'
-
-" A Vim alignment plugin
-Plug 'junegunn/vim-easy-align'
-
-" fcitx
-Plug 'vim-scripts/fcitx.vim'
-
-" Initialize plugin system
-call plug#end()
 " }}}
 
 " General {{{
@@ -186,25 +138,28 @@ set wildignore+=*/.git/*,*/.svn/*,*/.hg/*
 inoremap jj <ESC>
 inoremap jk <ESC>
 inoremap kj <ESC>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 
 " leaderkey
 let mapleader="\<space>"
 
+nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <leader>n :NERDTreeToggle .<CR>
 nnoremap <leader>b :buffer
 nnoremap <leader>bl :buffers<CR>
-nnoremap <leader>w :w<CR>
 nnoremap <leader><C-p> :bprev<CR>
 nnoremap <leader><C-n> :bnext<CR>
 nnoremap <leader>m :silent make\|redraw!\|cw<CR>
-nnoremap <leader>n :NERDTreeToggle .<CR>
 nnoremap <leader>t :NERDTreeTabsToggle<CR>
 nnoremap <leader>h :A<CR>
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>sc :SyntasticCheck<CR>
 nnoremap <leader>l :call ToggleNumber()<CR>
-nnoremap <leader><space> :noh<CR>
 nnoremap <leader>1 :set number!<CR>
 vmap <leader>y :w! /tmp/vitmp<CR>
 nmap <leader>p :r! cat /tmp/vitmp<CR>
