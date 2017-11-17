@@ -136,7 +136,6 @@ set wildignore+=*/.git/*,*/.svn/*,*/.hg/*
 
 " Shortcuts {{{
 " fast <ESC>
-inoremap jj <ESC>
 inoremap jk <ESC>
 inoremap kj <ESC>
 noremap <Up> <NOP>
@@ -156,7 +155,7 @@ nnoremap <leader><C-p> :bprev<CR>
 nnoremap <leader><C-n> :bnext<CR>
 nnoremap <leader>m :silent make\|redraw!\|cw<CR>
 nnoremap <leader>t :NERDTreeTabsToggle<CR>
-nnoremap <leader>h :noh
+nnoremap <leader>h :noh<CR>
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>l :call ToggleNumber()<CR>
