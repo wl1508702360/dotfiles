@@ -336,7 +336,7 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '%s <%severity%> [%linter%]'
 let g:ale_php_phpcs_standard = 'PSR2'
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 " }}}
 
 " }}}
