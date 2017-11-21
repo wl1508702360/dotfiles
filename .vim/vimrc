@@ -1,6 +1,7 @@
 " start plugins {{{
 call plug#begin('~/.vim/plugged')
 Plug 'w0rp/ale'
+Plug 'elzr/vim-json'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree'
